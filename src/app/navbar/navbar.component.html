@@ -12,26 +12,28 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#/">Ilmoittuminen</a>
+      <a class="navbar-brand" href="#/">Home</a>
+      <ul class="navbar-nav col-md-4 ms-auto">
+        <li class="nav-item">
+          <!-- Sisäänkirjautuminen появляется, когда пользователь не авторизовался
+            *ngIf="this.authService.isLoggedIn === false"-->
+           
+             <a class="nav-link" routerLink="loginform">Sisäänkirjautuminen</a>
+           </li>
+           <!--Uloskirjautuminen появляется когда пользователь авторизовался
+           <li class="nav-item" *ngIf="this.authService.isLoggedIn === true">
+             <a class="nav-link" routerLink="loginform">Uloskirjautuminen</a>
+           </li>
+           -->
+      
+        <li class="nav-item">
+          <a class="nav-link" routerLink="myprofile">My profile</a>
+        </li>
 
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLink="reglist">Ilmoittautuneet</a>
+          <a class="nav-link" routerLink="search">Search</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="regform">Ilmoittautumislomake</a>
-        </li>
-        <li class="nav-item">
-       <!-- Sisäänkirjautuminen появляется, когда пользователь не авторизовался
-         *ngIf="this.authService.isLoggedIn === false"-->
         
-          <a class="nav-link" routerLink="loginform">Sisäänkirjautuminen</a>
-        </li>
-        <!--Uloskirjautuminen появляется когда пользователь авторизовался
-        <li class="nav-item" *ngIf="this.authService.isLoggedIn === true">
-          <a class="nav-link" routerLink="loginform">Uloskirjautuminen</a>
-        </li>
-        -->
       </ul>
     </div>
   </div>
