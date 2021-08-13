@@ -9,6 +9,8 @@ import { LoginformComponent } from './loginform/loginform.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { SearchComponent } from './search/search.component';
 import { RegformComponent } from './regform/regform.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { StartComponent } from './start/start.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { RegformComponent } from './regform/regform.component';
     LoginformComponent,
     MyprofileComponent,
     SearchComponent,
-    RegformComponent
+    RegformComponent,
+    RegistrationComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,
