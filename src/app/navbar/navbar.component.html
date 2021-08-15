@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <button
       class="navbar-toggler"
@@ -18,21 +18,21 @@
           <!-- Sisäänkirjautuminen появляется, когда пользователь не авторизовался
             *ngIf="this.authService.isLoggedIn === false"-->
            
-             <a class="nav-link" routerLink="loginform">Sisäänkirjautuminen</a>
+             <a class="nav-link" routerLink="loginform">Log in</a>
            </li>
-           <!--Uloskirjautuminen появляется когда пользователь авторизовался
+           <!--Log out появляется когда пользователь авторизовался
            <li class="nav-item" *ngIf="this.authService.isLoggedIn === true">
-             <a class="nav-link" routerLink="loginform">Uloskirjautuminen</a>
+             <a class="nav-link" routerLink="loginform">Log out</a>
            </li>
            -->
-      
-        <li class="nav-item">
+       <!-- My profile появляется когда пользователь авторизовался
+        <li class="nav-item" *ngIf="this.authService.isLoggedIn === true">
           <a class="nav-link" routerLink="myprofile">My profile</a>
-        </li>
-
-        <li class="nav-item">
+        </li>-->
+ <!-- Search появляется когда пользователь авторизовался
+        <li class="nav-item" *ngIf="this.authService.isLoggedIn === true">
           <a class="nav-link" routerLink="search">Search</a>
-        </li>
+        </li> -->
         
       </ul>
     </div>

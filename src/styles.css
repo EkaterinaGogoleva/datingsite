@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+}
+body, html {
+  height: 100%;
+  background-color: black;
+}
+
+.container {
+  /* The image used */
+  background-image: url("./image/background.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
