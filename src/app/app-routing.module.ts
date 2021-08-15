@@ -8,11 +8,11 @@ import { StartComponent } from './start/start.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/start', pathMatch: 'full' }, // redirect to `first-component`
-  { path: 'myprofile', component: MyprofileComponent },
+  { path: 'myprofile', component: MyprofileComponent /*, canActivate: [AuthGuard] */ },
   //reform on suojattu LoginGuardilla
-  { path: 'regform', component: RegformComponent /*, canActivate: [LoginGuard]*/ },
+  { path: 'regform', component: RegformComponent  },
   { path: 'loginform', component: LoginformComponent },
-  { path: 'search', component: SearchComponent },
+  { path: 'search', component: SearchComponent /*, canActivate: [AuthGuard] */ },
   { path: 'start', component: StartComponent },
 ];
 
