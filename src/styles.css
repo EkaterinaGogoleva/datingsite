@@ -9,9 +9,8 @@ body, html {
 }
 
 .container {
-  /* The image used */
-  background-image: url("./image/background.jpg");
-
+  /* The image used  background-image: url("./image/background.jpg");*/
+background-image: url('./image/background.jpg');
   /* Full height */
   height: 100%;
 

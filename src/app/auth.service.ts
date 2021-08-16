@@ -14,19 +14,19 @@ export class AuthService {
   private apiUrl = 'http://localhost:3000/users/login'; // autentikaatiopalvelun osoite
   // autentikaatiopalvelun osoite, Когда серверную часть прикрепили к heruku
   //private apiUrl = 'https://warm-lowlands-87442.herokuapp.com/users/login'; // autentikaatiopalvelun osoite
-  public token: string;
+  /*public token: string;
   private jwtHelp = new JwtHelperService(); // helpperipalvelu jolla dekoodataan token
   private subject = new Subject<any>(); // subjectilla viesti navbariin että token on tullut
 
   constructor(private http: HttpClient) {
     // Jos token on jo sessionStoragessa, otetaan se sieltä muistiin
-    const currentUser = JSON.parse(sessionStorage.getItem('accesstoken'));
+   /* const currentUser = JSON.parse(sessionStorage.getItem('accesstoken'));
     this.token = currentUser && currentUser.token;
   }
   /* login-metodi ottaa yhteyden backendin autentikaatioreittiin, postaa tunnarit
   ja palauttaa Observablena true tai false riippuen siitä saatiinko lähetetyillä
   tunnareilla token backendistä */
-  login(username: string, password: string): Observable<boolean> {
+ /* login(username: string, password: string): Observable<boolean> {
     // tässä ei käytetä JSON.stringify -metodia lähtevälle tiedolle
     return this.http.post(this.apiUrl, { username: username, password: password })
       .pipe(map((res) => {
@@ -36,14 +36,14 @@ export class AuthService {
           "Tässä on valmis Token!",
           token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ…zNzV9.x1gWEg9DtoPtEUUHlR8aDgpuzG6NBNJpa2L-MEhyraQ"}
         */
-        const token = res['token']; // otetaan vastauksesta token
+      /*  const token = res['token']; // otetaan vastauksesta token
         if (token) {
           this.token = token;
           /* Tässä tutkitaan onko tokenin payloadin sisältö oikea.
              Jos on, laitetaan token sessionStorageen ja palautetaan true
              jolloin käyttäjä pääsee Admin-sivulle
           */
-          try {
+         /* try {
             // dekoodataan token
             const payload = this.jwtHelp.decodeToken(token);
             console.log(payload);
@@ -71,15 +71,14 @@ export class AuthService {
      niin Logout on mahdollista tehdä, joten vaihdetaan navbariin login-linkin
      tilalle logout-linkki
   */
-  loginTrue(): Observable<any> {
+ /* loginTrue(): Observable<any> {
     this.subject.next(true);
     return this.subject.asObservable();
   }
 
   // logout poistaa tokenin sessionStoragesta
-  logout(): void {
+  /*logout(): void {
     this.token = null;
     sessionStorage.removeItem('accesstoken');
-  }
+  }*/
 }
-
