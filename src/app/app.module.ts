@@ -4,13 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { NavbarComponent } from './navbar/navbar.component'
-import { LoginformComponent } from './loginform/loginform.component';
-import { MyprofileComponent } from './myprofile/myprofile.component';
-import { SearchComponent } from './search/search.component';
-import { RegformComponent } from './regform/regform.component';
-import { StartComponent } from './start/start.component';
-import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
@@ -19,22 +12,17 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    LoginformComponent,
-    MyprofileComponent,
-    SearchComponent,
-    RegformComponent,
-    StartComponent,
-    LoginComponent,
     RegisterComponent,
     HomeComponent,
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
     BoardUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule, 
@@ -42,7 +30,7 @@ import { BoardUserComponent } from './board-user/board-user.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule],
-  providers: [AuthGuard],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
