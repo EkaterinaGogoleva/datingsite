@@ -17,22 +17,25 @@
         <li class="nav-item">
           <!-- Sisäänkirjautuminen появляется, когда пользователь не авторизовался
             *ngIf="this.authService.isLoggedIn === false"-->
-           
-             <a class="nav-link" routerLink="loginform">Log in</a>
-           </li>
-           <!--Log out появляется когда пользователь авторизовался
-           <li class="nav-item" *ngIf="this.authService.isLoggedIn === true">
+
+          <a class="nav-link" routerLink="loginform">Log in</a>
+        </li>
+        <!--Log out появляется когда пользователь авторизовался-->
+          <!--*ngIf="this.authService.isLoggedIn === true"-->
+           <li class="nav-item">
              <a class="nav-link" routerLink="loginform">Log out</a>
            </li>
-           -->
-       <!-- My profile появляется когда пользователь авторизовался
-        <li class="nav-item" *ngIf="this.authService.isLoggedIn === true">
+          
+        <!-- My profile появляется когда пользователь авторизовался-->
+          <!--*ngIf="this.authService.isLoggedIn === true"-->
+        <li class="nav-item">
           <a class="nav-link" routerLink="myprofile">My profile</a>
-        </li>-->
- <!-- Search появляется когда пользователь авторизовался
-        <li class="nav-item" *ngIf="this.authService.isLoggedIn === true">
+        </li>
+        <!-- Search появляется когда пользователь авторизовался-->
+        <!--*ngIf="this.authService.isLoggedIn === true"-->
+        <li class="nav-item">
           <a class="nav-link" routerLink="search">Search</a>
-        </li> -->
+        </li>
         
       </ul>
     </div>
