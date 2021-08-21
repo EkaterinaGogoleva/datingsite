@@ -6,6 +6,7 @@
  import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -22,8 +23,12 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private router: Router, private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  goForm(){
 
+    this.router.navigate(['/form']);
+}
+  
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
@@ -36,11 +41,15 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(username, password).subscribe(
       data => {
+       
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
 
         this.isLoginFailed = false;
+         //перенаправляем на форм, не сработало
+ //this.router.navigate(['/form']);
         this.isLoggedIn = true;
+      
         this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
       },

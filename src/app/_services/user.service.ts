@@ -29,4 +29,8 @@ export class UserService {
   getAdminBoard(): Observable<any> {
     return this.http.get(API_URL + 'admin', { responseType: 'text' });
   }
+  //cама дописала для формы
+  getForm(): Observable<any> {
+    return this.http.get(API_URL + 'form', { responseType: 'text' });
+  }
 }

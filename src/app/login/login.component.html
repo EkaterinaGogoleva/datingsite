@@ -75,6 +75,10 @@
     
         <div class="alert alert-success" *ngIf="isLoggedIn">
           Logged in as {{ roles }}.
+          <button class="btn btn-primary btn-block"
+          (click)='goForm()'>
+            Continue
+          </button>
         </div>
       </div>
     </div>
