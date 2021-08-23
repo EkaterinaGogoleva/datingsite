@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { UserService } from '../_services/user.service';
+import { Profile } from '../profile';
+import { ProfileService } from '../_services/profile.service';
 
 
 @Component({
@@ -8,24 +9,19 @@ import { UserService } from '../_services/user.service';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {content?: string;
+export class FormComponent implements OnInit {
  
-  constructor(private router: Router, private userService: UserService) { 
+  
 
+  constructor(private router: Router) { 
+   
   }
 
 
   ngOnInit(): void {
-    this.userService.getUserBoard().subscribe(
-      data => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+   
   }
-
+// kontakti serverille
   onSubmit(): void {
     
   }

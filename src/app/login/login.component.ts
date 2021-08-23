@@ -24,10 +24,7 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
 
   constructor(private router: Router, private authService: AuthService, private tokenStorage: TokenStorageService) { }
-  goForm(){
-
-    this.router.navigate(['/form']);
-}
+ 
   
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {

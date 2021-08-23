@@ -1,9 +1,9 @@
 <div class="container-fluid">
   <div style="margin-top: 20px">Ilmoittautumislomake</div>
   <!-- внутри form ,было вставлено #f="ngForm" (ngSubmit)="onSubmit(f.value); navigateToList()"
-Но у  меня не работает. Заработало: надо было в ts указать onSubmit
+
 -->
-  <form #f="ngForm" (ngSubmit)="onSubmit(f.value); navigateToList()">
+  <form #f="ngForm" >
     <div class="form-group">
       <label id="nimi">Nimi:</label>
       <input
