@@ -1,0 +1,76 @@
+<div class="container" *ngIf="currentUser; else loggedOut">
+  <header class="jumbotron">
+    <h3>
+      <strong>{{ currentUser.username }}</strong> Profile
+    </h3>
+  </header>
+  <p>
+    <strong>Username:</strong>
+    {{ currentUser.username }}
+  </p>
+  <!-- <p>
+   <strong>Token:</strong>
+    {{ currentUser.accessToken.substring(0, 20) }} ...
+    {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
+  </p>-->
+  <p>
+    <strong>Email:</strong>
+    {{ currentUser.email }}
+  </p>
+  <!--<strong>Roles:</strong>
+  <ul>
+    <li *ngFor="let role of currentUser.roles">
+      {{ role }}
+    </li>
+  </ul>-->
+  <!--сюда самостоятельно пишу данные, которые заполняет пользователь
+  tutorial 4-->
+ <p> *********************************************** </p>
+ <div style="width: 400px; margin: auto;">
+  <div *ngIf="currentProfile" class="edit-form">
+    <h4>Profile</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Gender</label>
+        <input
+          type="text"
+          class="form-control"
+          id="gender"
+          [(ngModel)]="currentProfile.gender"
+          name="gender"
+        />
+      </div>
+     
+
+  
+    </form>
+
+    
+    <button class="badge badge-danger mr-2" (click)="deleteProfile()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success"
+      (click)="updateProfile()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentProfile">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+  </div>
+</div>
+
+
+
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>
+

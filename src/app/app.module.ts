@@ -7,24 +7,26 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
+import { MeComponent } from './me/me.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
-import { BoardUserComponent } from './board-user/board-user.component';
+import { ProfilesComponent } from './profiles/profiles.component';
 import { FormComponent } from './form/form.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     HomeComponent,
-    ProfileComponent,
+    MeComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent,
+    ProfilesComponent,
     LoginComponent,
-    FormComponent
+    FormComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule, 

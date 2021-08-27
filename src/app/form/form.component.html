@@ -1,61 +1,26 @@
-<div class="container-fluid">
-  <div style="margin-top: 20px">Ilmoittautumislomake</div>
-  <!-- внутри form ,было вставлено #f="ngForm" (ngSubmit)="onSubmit(f.value); navigateToList()"
+<div style="width: 400px; margin: auto;">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <input
+          type="text"
+          class="form-control"
+          id="gender"
+          required
+          [(ngModel)]="profile.gender"
+          name="gender"
+        />
+      </div>
 
--->
-  <form #f="ngForm" >
-    <div class="form-group">
-      <label id="nimi">Nimi:</label>
-      <input
-      type="text"
-      class="form-control"
-      name="nimi" ngModel
-      />
-      <br />
-      <label style="margin-top: 10px" id="email">Email:</label>
-      <input
-        type="text"
-        class="form-control"
-        name="email" ngModel
-      />
-      <br />
-      <label style="margin-top: 10px" for="ruoka" id="ruoka">Ruokavalinta:</label>
 
-      <select
-        class="form-control"
-        name="ruoka"
-        for="ruoka"
-     ngModel
-      >
-        <option>Kala</option>
-        <option>Liha</option>
-        <option>Kasvis</option>
-      </select>
-
-      <div class="checkbox" style="margin-top: 20px">
-        <label id="sauna"
-          ><input
-            for="sana"
-            type="checkbox"
-            name="sauna"
-            ngModel
-          />
-          Osallistunut saunailtaan</label
-        >
-      </div> 
+      <button (click)="saveProfile()" class="btn btn-success">Submit</button>
     </div>
-    <button
-      type="submit"
-      class="btn btn-outline-secondary"
-      class="add-button"
-      class ="topmargin"
-     
-    >
-      Lähetä
-    </button>
-  </form>
+
+    <div *ngIf="submitted">
+      <h4>You submitted successfully!</h4>
+      <!--кнопка Add будет не нужна, так как нет необходимости занова заполнять форму-->
+      <button class="btn btn-success" (click)="newProfile()">Add</button>
+    </div>
+  </div>
 </div>
-
-
-
-

@@ -4,48 +4,55 @@ import { Observable, of } from 'rxjs'; //добавили библиотеку �
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
+
+//взято из meanfront
+const headers = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
-  //это адрес сервера, откуда получается информация. Имя берем из in-memore service return
-profileUrl = 'api/profiles';  // URL to web api
-httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+  private meUrl = 'http://localhost:8080/api/me';
+  private profilesUrl = 'http://localhost:8080/api/profiles';// apin osoite
+  //private apiUrl = 'https://warm-lowlands-87442.herokuapp.com/students'; адрес серверной части указать свой, когда привязали ее к heruku
   
 constructor(private http: HttpClient) { }
-
-
-
-getProfiles(): Observable<Profile[]> {
-  return this.http.get<Profile[]>(this.profileUrl)
-  /*.pipe(
-    tap(_ => this.log('fetched osallistujat')),
-    catchError(this.handleError<Osallistuja[]>('getOsallistujat', [])) );*/
-}
-
-
-/**
- * Handle Http operation that failed.
- * Let the app continue.
- * @param operation - name of the operation that failed
- * @param result - optional value to return as the observable result
- */
- private handleError<T>(operation = 'operation', result?: T) {
-  return (error: any): Observable<T> => {
-
-    // TODO: send the error to remote logging infrastructure
-   //console.error(error); // log to console instead
-
-    // TODO: better job of transforming error for user consumption
-    this.log(`${operation} failed: ${error.message}`);
-
-    // Let the app keep running by returning an empty result.
-    return of(result as T);
-  };
-} 
-  log(arg0: string) {
-    throw new Error('Method not implemented.');
+  // Virheenkäsittelymetodi joka palauttaa observablen
+  private handleError(error: any): Observable<any> {
+    console.error('An error occurred', error);
+    return (error.message || error);
   }
+
+
+getAll(): Observable<Profile[]> {
+  return this.http.get<Profile[]>(this.profilesUrl)
+  .pipe(
+    catchError(this.handleError)
+  );
 }
+
+create(data: any): Observable<any> {
+  //cама указала два адреса, чтобы создавал и в profile и в user
+  return this.http.post(this.profilesUrl, this.meUrl, data);
+}
+
+
+//tutorial 4
+get(id: any): Observable<any> {
+  return this.http.get(`${this.profilesUrl}/${id}`);
+}
+// заменить на поиск по имени
+findByGender(gender: any): Observable<any> {
+  return this.http.get(`${this.apiUrl}?gender=${gender}`);
+}
+
+update(id: any, data: any): Observable<any> {
+  return this.http.put(`${this.apiUrl}/${id}`, data);
+}
+delete(id: any): Observable<any> {
+  return this.http.delete(`${this.apiUrl}/${id}`);
+}
+
+} 
+
+
