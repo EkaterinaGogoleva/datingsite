@@ -11,7 +11,10 @@ import { ProfileService } from '../_services/profile.service';
 export class FormComponent implements OnInit {
 //tutorial 4
   profile = {
-    gender: ''
+    usernamepublic: '',
+    emailpublic: '',
+    gender: '',
+    published: false
   };
   submitted = false;
 
@@ -20,10 +23,12 @@ export class FormComponent implements OnInit {
 
    saveProfile(): void {
     const data = {
+      usernamepublic: this.profile.usernamepublic,
+      emailpublic: this.profile.emailpublic,
       gender: this.profile.gender
     };
 
-    this.profileService.addProfile(data)
+    this.profileService.create(data)
       .subscribe(
         response => {
           console.log(response);
@@ -37,8 +42,10 @@ export class FormComponent implements OnInit {
   newProfile(): void {
     this.submitted = false;
     this.profile = {
-      gender: ''
+      usernamepublic: '',
+      emailpublic: '',
+      gender: '',
+      published: false
     };
   }
-
 }

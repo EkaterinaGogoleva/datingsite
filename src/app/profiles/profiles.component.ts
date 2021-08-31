@@ -14,6 +14,10 @@ export class ProfilesComponent implements OnInit {
   //заменила значение null на any
   currentProfile: any;
   currentIndex = -1;
+  username= '';
+  email='';
+  emailpublic='';
+  usernamepublic= '';
   gender ='';
   
 
@@ -60,8 +64,8 @@ setActiveProfile(profile: any, index: any): void {
  //cюда дополнить по другим критериям
  //https://www.bezkoder.com/angular-10-crud-app/
 
- searchGender(): void {
-  this.ProfileService.findByGender(this.gender)
+ searchByUsername(): void {
+  this.ProfileService.findByUsername(this.username)
     .subscribe(
       data => {
         this.profiles = data;

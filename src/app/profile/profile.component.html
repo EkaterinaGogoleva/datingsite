@@ -1,1 +1,99 @@
-<p>profile works!</p>
+<div style="width: 400px; margin: auto;">
+  <div *ngIf="currentProfile" class="edit-form">
+    <h4>Profile</h4>
+    <form>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          [(ngModel)]="currentProfile.username"
+          name="username"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email"></label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          [(ngModel)]="currentProfile.email"
+          name="email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="usernamepublic">Public Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="usernamepublic"
+          [(ngModel)]="currentProfile.usernamepublic"
+          name="usernamepublic"
+        />
+      </div>
+      <div class="form-group">
+        <label for="emailpublic"></label>
+        <input
+          type="text"
+          class="form-control"
+          id="emailpublic"
+          [(ngModel)]="currentProfile.emailpublic"
+          name="emailpublic"
+        />
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="gender"></label>
+        <input
+          type="text"
+          class="form-control"
+          id="gender"
+          [(ngModel)]="currentProfile.gender"
+          name="gender"
+        />
+      </div>
+
+      <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentProfile.published ? "Published" : "Pending" }}
+      </div>
+    </form>
+
+    <button
+      class="badge badge-primary mr-2"
+      *ngIf="currentProfile.published"
+      (click)="updatePublished(false)"
+    >
+      UnPublish
+    </button>
+    <button
+      *ngIf="!currentProfile.published"
+      class="badge badge-primary mr-2"
+      (click)="updatePublished(true)"
+    >
+      Publish
+    </button>
+
+    <button class="badge badge-danger mr-2" (click)="deleteProfile()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success"
+      (click)="updateProfile()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentProfile">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+  </div>
+</div>
+

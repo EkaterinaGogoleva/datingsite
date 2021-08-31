@@ -9,7 +9,7 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { FormComponent } from './form/form.component';
-
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },

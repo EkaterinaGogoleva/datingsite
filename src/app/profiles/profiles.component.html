@@ -4,16 +4,16 @@
       <input
         type="text"
         class="form-control"
-        placeholder="Search by gender"
-        [(ngModel)]="gender"
+        placeholder="Search by username"
+        [(ngModel)]="username"
       />
       <div class="input-group-append">
         <button
           class="btn btn-outline-secondary"
           type="button"
-          (click)="searchGender()"
+          (click)="searchByUsername()"
         >
-          Search
+          Search by username
         </button>
       </div>
     </div>
@@ -27,7 +27,7 @@
         [class.active]="i == currentIndex"
         (click)="setActiveProfile(profile, i)"
       >
-        {{ profile.gender }}
+        {{ profile.username }}
       </li>
     </ul>
 
@@ -36,19 +36,32 @@
     <div *ngIf="currentProfile">
       <h4>Profile</h4>
       <div>
-        <label><strong>Gender:</strong></label> {{ currentProfile.gender}}
+        <label><strong>Username:</strong></label> 
+        {{ currentProfile.username}}
       </div>
-      <!--<div>
-        <label><strong>Description:</strong></label>
-        {{ currentTutorial.description }}
+      <div>
+        <label><strong>Email:</strong></label>
+        {{ currentProfile.email }}
+      </div>
+      <div>
+        <label><strong>Public Username:</strong></label> 
+        {{ currentProfile.usernamepublic}}
+      </div>
+      <div>
+        <label><strong>Public Email:</strong></label>
+        {{ currentProfile.emailpublic }}
+      </div>
+      <div>
+        <label><strong>Gender:</strong></label>
+        {{ currentProfile.gender }}
       </div>
       <div>
         <label><strong>Status:</strong></label>
-        {{ currentTutorial.published ? "Published" : "Pending" }}
+        {{ currentProfile.published ? "Published" : "Pending" }}
       </div>
-    -->
+  
     <!--If you click on Edit button of any Tutorial, You will be directed to Tutorial page with url: /tutorials/:id.-->
-      <a class="badge badge-warning" routerLink="/profile/{{ currentProfile.id}}">
+      <a class="badge badge-warning" routerLink="/profiles/{{ currentProfile.id}}">
         Edit
       </a>
     </div>

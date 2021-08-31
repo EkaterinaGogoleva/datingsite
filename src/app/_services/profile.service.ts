@@ -13,7 +13,7 @@ const headers = { headers: new HttpHeaders({ 'Content-Type': 'application/json' 
 })
 export class ProfileService {
   private meUrl = 'http://localhost:8080/api/me';
-  private profilesUrl = 'http://localhost:8080/api/profiles';// apin osoite
+  private profilesUrl = 'http://localhost:8080/api/auth/user';// apin osoite
   //private apiUrl = 'https://warm-lowlands-87442.herokuapp.com/students'; адрес серверной части указать свой, когда привязали ее к heruku
   
 constructor(private http: HttpClient) { }
@@ -32,8 +32,8 @@ getAll(): Observable<Profile[]> {
 }
 
 create(data: any): Observable<any> {
-  //cама указала два адреса, чтобы создавал и в profile и в user
-  return this.http.post(this.profilesUrl, this.meUrl, data);
+  //попробовать потом указать второй адрес this.meUrl
+  return this.http.post(this.profilesUrl, data);
 }
 
 
@@ -41,16 +41,23 @@ create(data: any): Observable<any> {
 get(id: any): Observable<any> {
   return this.http.get(`${this.profilesUrl}/${id}`);
 }
-// заменить на поиск по имени
-findByGender(gender: any): Observable<any> {
-  return this.http.get(`${this.apiUrl}?gender=${gender}`);
+
+//написала сама - поиск по имени
+getUsername(username: any): Observable<any> {
+  return this.http.get(`${this.profilesUrl}/${username}`);
 }
 
-update(id: any, data: any): Observable<any> {
-  return this.http.put(`${this.apiUrl}/${id}`, data);
+// заменить на поиск по имени
+findByUsername(username: any): Observable<any> {
+  return this.http.get(`${this.profilesUrl}?username=${username}`);
 }
+//пока изменение делаем как в туториале
+update(username:any, data: any): Observable<any> {
+  return this.http.put(`${this.profilesUrl}/${username}`, data);
+}
+//пока удаление делаем как в туториале
 delete(id: any): Observable<any> {
-  return this.http.delete(`${this.apiUrl}/${id}`);
+  return this.http.delete(`${this.profilesUrl}/${id}`);
 }
 
 } 
