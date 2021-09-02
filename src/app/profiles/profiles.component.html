@@ -5,7 +5,7 @@
         type="text"
         class="form-control"
         placeholder="Search by username"
-        [(ngModel)]="username"
+        [(ngModel)]="usernamepublic"
       />
       <div class="input-group-append">
         <button
@@ -27,7 +27,7 @@
         [class.active]="i == currentIndex"
         (click)="setActiveProfile(profile, i)"
       >
-        {{ profile.username }}
+        {{ profile.usernamepublic }}
       </li>
     </ul>
 
@@ -35,14 +35,6 @@
   <div class="col-md-6">
     <div *ngIf="currentProfile">
       <h4>Profile</h4>
-      <div>
-        <label><strong>Username:</strong></label> 
-        {{ currentProfile.username}}
-      </div>
-      <div>
-        <label><strong>Email:</strong></label>
-        {{ currentProfile.email }}
-      </div>
       <div>
         <label><strong>Public Username:</strong></label> 
         {{ currentProfile.usernamepublic}}

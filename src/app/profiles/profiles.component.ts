@@ -8,14 +8,12 @@ import { ProfileService } from '../_services/profile.service';
   styleUrls: ['./profiles.component.css']
 })
 export class ProfilesComponent implements OnInit {
-  content?: string;
+  //content?: string;
 
   profiles: any;
   //заменила значение null на any
   currentProfile: any;
   currentIndex = -1;
-  username= '';
-  email='';
   emailpublic='';
   usernamepublic= '';
   gender ='';
@@ -28,14 +26,14 @@ export class ProfilesComponent implements OnInit {
     //this.retrieveProfiles(); from tutorial 4
     this.retrieveProfiles();
     //tutorial 1
-    this.userService.getUserBoard().subscribe(
+    /*this.userService.getUserBoard().subscribe(
       data => {
         this.content = data;
       },
       err => {
         this.content = JSON.parse(err.error).message;
       }
-    );
+    );*/
   }
 
 //tutorial 4
@@ -65,7 +63,7 @@ setActiveProfile(profile: any, index: any): void {
  //https://www.bezkoder.com/angular-10-crud-app/
 
  searchByUsername(): void {
-  this.ProfileService.findByUsername(this.username)
+  this.ProfileService.findByUsername(this.usernamepublic)
     .subscribe(
       data => {
         this.profiles = data;
