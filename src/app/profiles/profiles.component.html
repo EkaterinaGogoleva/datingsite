@@ -1,23 +1,51 @@
 <div class="list row">
-  <div class="col-md-8">
-    <div class="input-group mb-3">
+<div class="col-md-8">
+    <!--  <div class="input-group mb-3">
       <input
         type="text"
         class="form-control"
         placeholder="Search by username"
         [(ngModel)]="usernamepublic"
       />
+      
       <div class="input-group-append">
         <button
           class="btn btn-outline-secondary"
           type="button"
-          (click)="searchByUsername()"
+          (click)="searchByUsername(usernamepublic)"
         >
           Search by username
         </button>
+      </div>-->
+      <!--Tour of Heroes-->
+      <div id="search-component">
+        <h4><label for="search-box">Search by Username</label></h4>
+
+        <input
+          #searchBox
+          id="search-box"
+          (input)="searchByUsername(searchBox.value)"
+        />
+
+        <ul class="search-result">
+          <!--знак $ означает, что это переменная из Observable
+          async filter eli pipe tilaa observablen templaatissa jolloin sankarit 
+        saadan ulos observablesta -->
+          <li *ngFor="let profile of searchprofiles$ | async">
+            <a routerLink="/profiles/{{ profile.id }}">
+              {{ profile.usernamepublic }}
+            </a>
+          </li>
+        </ul>
       </div>
+   
+  
     </div>
-  </div>
+  
+      <!--</div>  закаончились коды по поиску по имени-->
+    
+
+
   <div class="col-md-6">
     <h4>Profiles List</h4>
     <ul class="list-group">
@@ -30,14 +58,13 @@
         {{ profile.usernamepublic }}
       </li>
     </ul>
-
   </div>
   <div class="col-md-6">
     <div *ngIf="currentProfile">
       <h4>Profile</h4>
       <div>
-        <label><strong>Public Username:</strong></label> 
-        {{ currentProfile.usernamepublic}}
+        <label><strong>Public Username:</strong></label>
+        {{ currentProfile.usernamepublic }}
       </div>
       <div>
         <label><strong>Public Email:</strong></label>
@@ -49,11 +76,15 @@
       </div>
       <div>
         <label><strong>Status:</strong></label>
-        {{ currentProfile.published ? "Published" : "Pending" }}
+        {{ currentProfile.published ? 'Published' : 'Pending' }}
       </div>
-  
-    <!--If you click on Edit button of any Tutorial, You will be directed to Tutorial page with url: /tutorials/:id.-->
-      <a class="badge badge-warning" routerLink="/profiles/{{ currentProfile.id}}">
+
+      <!--If you click on Edit button of any Tutorial, You will be directed to Tutorial page with url: /tutorials/:id.-->
+      <a
+        class="badge badge-warning"
+     
+        routerLink="/profiles/{{ currentProfile.id }}"
+      > 
         Edit
       </a>
     </div>
@@ -64,5 +95,3 @@
     </div>
   </div>
 </div>
-
-

@@ -6,7 +6,9 @@ import { Profile } from '../profile';
 
 
 
+
 const profilesUrl = 'http://localhost:8080/api/profiles';// apin osoite
+const profilesnameUrl = 'http://localhost:8080/api/profiles/username';
 //private apiUrl = 'https://warm-lowlands-87442.herokuapp.com/students'; адрес серверной части указать свой, когда привязали ее к heruku
 @Injectable({
   providedIn: 'root'
@@ -39,23 +41,20 @@ get(id: any): Observable<any> {
   return this.http.get(`${profilesUrl}/${id}`);
 }
 
-//написала сама - поиск по имени
-getUsername(username: any): Observable<any> {
-  return this.http.get(`${profilesUrl}/${username}`);
-}
-
-// заменить на поиск по имени
-findByUsername(username: any): Observable<any> {
-  return this.http.get(`${profilesUrl}?username=${username}`);
-}
+findByUsername(usernamepublic: any): Observable<any> {
+  return this.http.get(`${profilesnameUrl}/?usernamepublic=${usernamepublic}`)
+};
 //пока изменение делаем как в туториале
-update(username:any, data: any): Observable<any> {
-  return this.http.put(`${profilesUrl}/${username}`, data);
+update(id:any, data: any): Observable<any> {
+  return this.http.put(`${profilesUrl}/${id}`, data);
 }
 //пока удаление делаем как в туториале
 delete(id: any): Observable<any> {
   return this.http.delete(`${profilesUrl}/${id}`);
 }
+
+
+
 
 } 
 
