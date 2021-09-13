@@ -1,12 +1,13 @@
 export class Profile {
   // konstruktorimetodi joka rakentaa student-olion
   constructor(
-    public id: string, // mongon lisäämä _id
-   public username: string,
+  //public id: {}, // mongon lisäämä _id
+   public username: String,
    public email: String,
-   public usernamepublic: string,
+   public usernamepublic: String,
    public emailpublic: String,
-    public gender: string,
+    public gender: String,
+    public published: Boolean,
     //public date_of_birth: Date,
     //public children: string,
     //public marital_status: string,

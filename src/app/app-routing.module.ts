@@ -15,10 +15,11 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'me', component: MeComponent },
+  { path: 'me/username/:usernamepublic', component: MeComponent },
   //tutorial 3
   //может потом id заменить на username
-  { path: 'profiles/:id', component: ProfileComponent },
+  //{ path: 'profiles/:id', component: ProfileComponent },
+  { path: 'profiles/username/:usernamepublic', component: ProfileComponent },
   { path: 'profiles', component: ProfilesComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },

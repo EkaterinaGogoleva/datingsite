@@ -15,6 +15,8 @@ import { FormComponent } from './form/form.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfileSearchComponent } from './profile-search/profile-search.component';
+import { MessagesComponent } from './messages/messages.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,9 @@ import { ProfileComponent } from './profile/profile.component';
     ProfilesComponent,
     LoginComponent,
     FormComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProfileSearchComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule, 

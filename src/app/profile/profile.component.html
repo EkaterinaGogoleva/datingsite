@@ -1,6 +1,17 @@
+<div *ngIf="profile">
+  <h2>Profiles details</h2>
+  <ul>
+  <li>Username: {{profile.usernamepublic}} </li>
+  <li>Email: {{profile.emailpublic}} </li>
+  <li>Gender: {{profile.gender}} </li>
+</ul>
+</div>
+
+<!--
 <div style="width: 400px; margin: auto;">
-  <div *ngIf="currentProfile" class="edit-form">
-    <h4>Profile</h4>
+  <div *ngIf="profile">
+    
+    <h2>{{profile.usernamepublic | uppercase}} profile</h2>
     <form>
       <div class="form-group">
         <label for="usernamepublic">Public Username!!!!!!!</label>
@@ -8,7 +19,7 @@
           type="text"
           class="form-control"
           id="usernamepublic"
-          [(ngModel)]="currentProfile.usernamepublic"
+          [(ngModel)]="profile.usernamepublic"
           name="usernamepublic"
         />
       </div>
@@ -18,7 +29,7 @@
           type="text"
           class="form-control"
           id="emailpublic"
-          [(ngModel)]="currentProfile.emailpublic"
+          [(ngModel)]="profile.emailpublic"
           name="emailpublic"
         />
       </div>
@@ -29,20 +40,20 @@
           type="text"
           class="form-control"
           id="gender"
-          [(ngModel)]="currentProfile.gender"
+          [(ngModel)]="profile.gender"
           name="gender"
         />
       </div>
 
       <div class="form-group">
         <label><strong>Status:</strong></label>
-        {{ currentProfile.published ? "Published" : "Pending" }}
+        {{ profile.published ? "Published" : "Pending" }}
       </div>
     </form>
-
+<!--
     <button
       class="badge badge-primary mr-2"
-      *ngIf="currentProfile.published"
+      *ngIf="profile.published"
       (click)="updatePublished(false)"
     >
       UnPublish
@@ -67,13 +78,13 @@
       Update
     </button>
     <p>{{ message }}</p>
-  </div>
-
-  <div *ngIf="!currentProfile">
+  </div>-->
+<!--
+  <div *ngIf="!profile">
     <br />
     <p>Cannot access this Tutorial...</p>
   </div>
    <!--кнопка, чтобы идти на шаг назад-->
-   <button (click)="goBack()">go back</button>
-</div>
+  <!-- <button (click)="goBack()">go back</button>
+</div>-->
 

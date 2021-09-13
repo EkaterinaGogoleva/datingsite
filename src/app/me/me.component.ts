@@ -33,6 +33,7 @@ export class MeComponent implements OnInit {
     //было this.route.shapshot.paramMap.get('id')
     this.getProfile(this.route.paramMap.get('id'));
   }
+  /*
   getProfile(id: any): void {
     this.profileService.get(id)
       .subscribe(
@@ -43,7 +44,20 @@ export class MeComponent implements OnInit {
         error => {
           console.log(error);
         });
+  }*/
+  //поменяла getprofile,чтоб искал по usernamepublic
+  getProfile(usernamepublic: any): void {
+    this.profileService.findByUsername(usernamepublic)
+      .subscribe(
+        data => {
+          this.currentProfile = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
   }
+
 //убрала  updatePublished
   
   updateProfile(): void {

@@ -1,6 +1,7 @@
-<div class="list row">
+
+   <!-- Поиск по имени из Туториала 4
 <div class="col-md-8">
-    <!--  <div class="input-group mb-3">
+     <div class="input-group mb-3">
       <input
         type="text"
         class="form-control"
@@ -16,82 +17,23 @@
         >
           Search by username
         </button>
-      </div>-->
-      <!--Tour of Heroes-->
-      <div id="search-component">
-        <h4><label for="search-box">Search by Username</label></h4>
-
-        <input
-          #searchBox
-          id="search-box"
-          (input)="searchByUsername(searchBox.value)"
-        />
-
-        <ul class="search-result">
-          <!--знак $ означает, что это переменная из Observable
-          async filter eli pipe tilaa observablen templaatissa jolloin sankarit 
-        saadan ulos observablesta -->
-          <li *ngFor="let profile of searchprofiles$ | async">
-            <a routerLink="/profiles/{{ profile.id }}">
-              {{ profile.usernamepublic }}
-            </a>
-          </li>
-        </ul>
       </div>
-   
-  
-    </div>
-  
-      <!--</div>  закаончились коды по поиску по имени-->
-    
+      </div>
+      </div>
+      -->
 
-
-  <div class="col-md-6">
     <h4>Profiles List</h4>
-    <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let profile of profiles; let i = index"
-        [class.active]="i == currentIndex"
-        (click)="setActiveProfile(profile, i)"
-      >
-        {{ profile.usernamepublic }}
-      </li>
-    </ul>
-  </div>
-  <div class="col-md-6">
-    <div *ngIf="currentProfile">
-      <h4>Profile</h4>
-      <div>
-        <label><strong>Public Username:</strong></label>
-        {{ currentProfile.usernamepublic }}
-      </div>
-      <div>
-        <label><strong>Public Email:</strong></label>
-        {{ currentProfile.emailpublic }}
-      </div>
-      <div>
-        <label><strong>Gender:</strong></label>
-        {{ currentProfile.gender }}
-      </div>
-      <div>
-        <label><strong>Status:</strong></label>
-        {{ currentProfile.published ? 'Published' : 'Pending' }}
-      </div>
-
-      <!--If you click on Edit button of any Tutorial, You will be directed to Tutorial page with url: /tutorials/:id.-->
+<div class="grid grid-pad">
       <a
-        class="badge badge-warning"
-     
-        routerLink="/profiles/{{ currentProfile.id }}"
-      > 
-        Edit
-      </a>
+        *ngFor="let profile of profiles"
+        class="col-1-4"
+        routerLink="/profiles/username/{{ profile.usernamepublic }}"
+      >
+  <div class="module hero">
+        <h4>{{ profile.usernamepublic }}</h4>
     </div>
-
-    <div *ngIf="!currentProfile">
-      <br />
-      <p>Please click on a Profile...</p>
-    </div>
+    </a>
   </div>
-</div>
+
+  <app-profile-search></app-profile-search>
+

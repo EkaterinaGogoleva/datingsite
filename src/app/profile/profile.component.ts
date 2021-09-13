@@ -10,36 +10,29 @@ import { Location } from '@angular/common'; //нужно чтобы переме
 })
 export class ProfileComponent implements OnInit {
   profile!: Profile;
-  currentProfile: any;
-  message = '';
+ // currentProfile: any;
+ // message = '';
   constructor(
     private ProfileService: ProfileService,
     private route: ActivatedRoute,
-    private router: Router,
-    private location: Location) { } 
+    //private router: Router,
+    private location: Location    ) { } 
    
 
   ngOnInit(): void {
-    this.message = '';
-    this.getProfile(this.route.snapshot.paramMap.get('id'));
-  }
-  getProfile(id: any): void {
-    this.ProfileService.get(id)
-      .subscribe(
-        data => {
-          this.currentProfile = data;
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
+   // this.message = '';
+    this.getProfile();
   }
 
+  getProfile(): void {
+    const usernamepublic = String(this.route.snapshot.paramMap.get('usernamepublic'));
+    this.ProfileService.findByUsername(usernamepublic)
+      .subscribe(profile => this.profile = profile);
+  }
+/*
   updatePublished(status: any): void {
     const data = {
-      username: this.currentProfile.username,
-      email: this.currentProfile.email,
-      usernamepublic: this.currentProfile.usernamepublic,
+      usernamepublic: this.usernamepublic,
       emailpublic: this.currentProfile.emailpublic,
       gender: this.currentProfile.gender,
       published: status
@@ -78,10 +71,12 @@ export class ProfileComponent implements OnInit {
         error => {
           console.log(error);
         });
-  }
+  }*/
   //методика, с помощью которой идем на шаг назад
  //метод взят из библиотеки ангулар import { Location } from '@angular/common'
   goBack(): void {
     this.location.back();
     }
 }
+
+
