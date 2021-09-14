@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../_services/profile.service';
+import { AuthService } from '../_services/auth.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -8,6 +10,16 @@ import { ProfileService } from '../_services/profile.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  ////добавила, чтобы данные шли в me
+  form: any = {
+    username: null,
+    email: null,
+    password: null,
+    usernamepublic: null
+  };
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 //tutorial 4
   profile = {
     usernamepublic: '',
@@ -17,14 +29,17 @@ export class FormComponent implements OnInit {
   };
   submitted = false;
 
-  constructor(private profileService: ProfileService) { }
+  constructor(private profileService: ProfileService,
+    private router: Router, 
+    private authService: AuthService) { }
    ngOnInit(): void {}
 
    saveProfile(): void {
     const data = {
       usernamepublic: this.profile.usernamepublic,
       emailpublic: this.profile.emailpublic,
-      gender: this.profile.gender
+      gender: this.profile.gender,
+      published: this.profile.published
     };
 
     this.profileService.create(data)
@@ -36,7 +51,30 @@ export class FormComponent implements OnInit {
         error => {
           console.log(error);
         });
+        
+        
+        
   }
+//добавила, чтобы данные шли в me
+  onSubmit(): void {
+    const { username, email, password, usernamepublic, emailpublic, gender} = this.form;
+
+    this.authService.register(username, email, password, usernamepublic, emailpublic, gender)
+    .subscribe(data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+        this.router.navigate(['/form'])
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+
+      }
+    );
+  }
+
+  
 
   newProfile(): void {
     this.submitted = false;
@@ -47,4 +85,6 @@ export class FormComponent implements OnInit {
       published: false
     };
   }
+  
+  
 }

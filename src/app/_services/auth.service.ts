@@ -3,6 +3,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Profile } from '../profile';
 
 //путь к серверной части аутентификации
 const AUTH_API = 'http://localhost:8080/api/auth/';
@@ -24,11 +25,17 @@ export class AuthService {
     }, httpOptions);
   }
 
-  register(username: string, email: string, password: string): Observable<any> {
+  register(username: string, email: string, password: string, usernamepublic: string,
+    emailpublic: string, gender: string, ): Observable<any> {
     return this.http.post(AUTH_API + 'user', {
       username,
       email,
-      password
+      password,
+      usernamepublic,
+      emailpublic,
+      gender
     }, httpOptions);
-  }
+  };
+
+  
 }

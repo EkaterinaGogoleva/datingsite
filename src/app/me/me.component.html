@@ -17,6 +17,12 @@
     <strong>Email:</strong>
     {{ currentUser.email }}
   </p>
+  <h2>Profiles details</h2>
+  <ul>
+  <li>Username: {{currentUser.usernamepublic}} </li>
+  <li>Email: {{currentProfile.emailpublic}} </li>
+  <li>Gender: {{currentProfile.gender}} </li>
+</ul>
   <!--<strong>Roles:</strong>
   <ul>
     <li *ngFor="let role of currentUser.roles">
@@ -25,7 +31,11 @@
   </ul>-->
   <!--сюда самостоятельно пишу данные, которые заполняет пользователь
   tutorial 4-->
+</div>
  <p> *********************************************** </p>
+
+
+<!--
  <div style="width: 400px; margin: auto;">
   <div *ngIf="" class="edit-form">
     <h4>Profile</h4>
@@ -64,11 +74,11 @@
     <br />
     <p>Cannot access this Tutorial...</p>
   </div>
-</div>
+</div>-->
 
 
 
-</div>
+
 
 <ng-template #loggedOut>
   Please login.

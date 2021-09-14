@@ -39,4 +39,14 @@ export class TokenStorageService {
 
     return {};
   }
+  //пробую сама, чтобы данные из формы вернулись в 'me'
+  public getProfileFromForm(): any {
+    const profile = window.sessionStorage.getItem(USER_KEY);
+    if (profile) {
+      return JSON.parse(profile);
+    }
+
+    return {};
+  }
+ 
 }

@@ -3,8 +3,10 @@ and show information (username, token, email, roles).*/
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { ProfileService } from '../_services/profile.service';
-//ActivatedRouteSnapshot добавила сама
-import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import{Profile} from '../profile'
+import { Location } from '@angular/common'; //нужно чтобы перемещаться на один шаг назад в приложении
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-me',
@@ -12,56 +14,33 @@ import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router'
   styleUrls: ['./me.component.css']
 })
 export class MeComponent implements OnInit {
-  private route: ActivatedRouteSnapshot;
+  profile!: Profile;
   //currentUser from tutorial 1
   currentUser: any;
   //tutorial 4 Поменяла null на any
-  currentProfile:any;
   message='';
+  //пробую делать чтобы сюда шли данные из формы
+   currentProfile:any;
 
   constructor(private token: TokenStorageService,
-    private profileService: ProfileService,
-    private router: Router,
-    //добавила сама
-    activatedRoute: ActivatedRoute) { 
-      this.route = activatedRoute.snapshot;
-    }
+    private ProfileService: ProfileService,
+    private route: ActivatedRoute,
+    //private router: Router,
+    private location: Location   ) {  }
 
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
     this.message = '';
-    //было this.route.shapshot.paramMap.get('id')
-    this.getProfile(this.route.paramMap.get('id'));
+    //пробую сама, чтобы данные из форы шли в "me"
+    this.currentProfile = this.token.getUser();
+   
   }
-  /*
-  getProfile(id: any): void {
-    this.profileService.get(id)
-      .subscribe(
-        data => {
-          this.currentProfile = data;
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
-  }*/
-  //поменяла getprofile,чтоб искал по usernamepublic
-  getProfile(usernamepublic: any): void {
-    this.profileService.findByUsername(usernamepublic)
-      .subscribe(
-        data => {
-          this.currentProfile = data;
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
-  }
+
 
 //убрала  updatePublished
   
   updateProfile(): void {
-    this.profileService.update(this.currentProfile.id, this.currentProfile)
+    this.ProfileService.update(this.currentProfile.id, this.currentProfile)
       .subscribe(
         response => {
           console.log(response);
@@ -73,11 +52,11 @@ export class MeComponent implements OnInit {
   }
 
   deleteProfile(): void {
-    this.profileService.delete(this.currentProfile.id)
+    this.ProfileService.delete(this.currentProfile.id)
       .subscribe(
         response => {
           console.log(response);
-          this.router.navigate(['/user']);
+        //  this.router.navigate(['/user']);
         },
         error => {
           console.log(error);

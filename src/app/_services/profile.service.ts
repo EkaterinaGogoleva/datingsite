@@ -6,12 +6,14 @@ import { Profile } from '../profile';
 import { MessageService } from './message.service';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 
 
 export class ProfileService {
+  private UsersUrl = 'http://localhost:8080/api/auth/user';
   private profilesUrl = 'http://localhost:8080/api/profiles';// apin osoite
 private profilesnameUrl = 'http://localhost:8080/api/profiles/username';
 //private apiUrl = 'https://warm-lowlands-87442.herokuapp.com/students'; адрес серверной части указать свой, когда привязали ее к heruku
@@ -34,7 +36,7 @@ constructor(private messageService: MessageService,
   };
 
 getAll(): Observable<Profile[]> {
-  return this.http.get<Profile[]>(this.profilesUrl)
+  return this.http.get<Profile[]>(this.UsersUrl)
   .pipe(
     catchError(this.handleError<Profile[]>('getAll', []))
   );
@@ -42,8 +44,9 @@ getAll(): Observable<Profile[]> {
 
 create(data: any): Observable<any> {
   //попробовать потом указать второй адрес this.meUrl
-  return this.http.post(this.profilesUrl, data);
+  return this.http.post(this.profilesUrl, data, this.httpOptions);
 }
+
 
 
 //tutorial 4
@@ -52,7 +55,7 @@ get(id: any): Observable<any> {
 }
 // было так ?usernamepublic=${usernamepublic} вместо /${usernamepublic}
 findByUsername(usernamepublic: string): Observable<any> {
-  return this.http.get(`${this.profilesnameUrl}/${usernamepublic}`).pipe(
+  return this.http.get(`${this.UsersUrl}/${usernamepublic}`).pipe(
     tap(_ => this.log(`fetched hero id=${usernamepublic}`)),
   catchError(this.handleError<Profile>(`findByUsername usernamepublic=${usernamepublic}`))
   );};

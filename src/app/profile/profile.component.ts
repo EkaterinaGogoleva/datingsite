@@ -10,8 +10,7 @@ import { Location } from '@angular/common'; //нужно чтобы переме
 })
 export class ProfileComponent implements OnInit {
   profile!: Profile;
- // currentProfile: any;
- // message = '';
+ 
   constructor(
     private ProfileService: ProfileService,
     private route: ActivatedRoute,

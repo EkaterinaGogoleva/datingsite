@@ -58,6 +58,47 @@
           </div>
         </div>
       </div>
+
+      <div class="form-group">
+        <label for="usernamepublic">Usernamepublic</label>
+        <input
+          type="usernamepublic"
+          class="form-control"
+          name="usernamepublic"
+          [(ngModel)]="form.usernamepublic"
+          required
+          usernamepublic
+          #usernamepublic="ngModel"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="emailpublic">Emailpublic</label>
+        <input
+          type="emailpublic"
+          class="form-control"
+          name="emailpublic"
+          [(ngModel)]="form.emailpublic"
+          required
+          emailpublic
+          #emailpublic="ngModel"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <input
+          type="gender"
+          class="form-control"
+          name="gender"
+          [(ngModel)]="form.gender"
+          required
+          gender
+          #gender="ngModel"
+        />
+      </div>
+
+
       <div class="form-group">
         <label for="password">Password</label>
         <input
