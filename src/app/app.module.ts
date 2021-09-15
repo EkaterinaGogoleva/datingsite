@@ -11,11 +11,9 @@ import { MeComponent } from './me/me.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { ProfilesComponent } from './profiles/profiles.component';
-import { FormComponent } from './form/form.component';
-
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ProfileComponent } from './profile/profile.component';
-import { ProfileSearchComponent } from './profile-search/profile-search.component';
+//import { ProfileSearchComponent } from './profile-search/profile-search.component';
 import { MessagesComponent } from './messages/messages.component';
 @NgModule({
   declarations: [
@@ -27,9 +25,8 @@ import { MessagesComponent } from './messages/messages.component';
     BoardModeratorComponent,
     ProfilesComponent,
     LoginComponent,
-    FormComponent,
     ProfileComponent,
-    ProfileSearchComponent,
+   // ProfileSearchComponent,
     MessagesComponent
   ],
   imports: [

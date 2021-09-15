@@ -19,29 +19,50 @@ export class MeComponent implements OnInit {
   currentUser: any;
   //tutorial 4 Поменяла null на any
   message='';
+  data!: {};
   //пробую делать чтобы сюда шли данные из формы
-   currentProfile:any;
+  // currentProfile:any;
+
 
   constructor(private token: TokenStorageService,
     private ProfileService: ProfileService,
     private route: ActivatedRoute,
-    //private router: Router,
+    private router: Router,
     private location: Location   ) {  }
 
+ 
   ngOnInit(): void {
+    //this.currentUser = this.token.getUser();
     this.currentUser = this.token.getUser();
     this.message = '';
     //пробую сама, чтобы данные из форы шли в "me"
-    this.currentProfile = this.token.getUser();
-   
-  }
-
-
-//убрала  updatePublished
+   // this.currentProfile = this.token.getUser();
+   //сама написала data, что обновлялись только конкрены поля
   
+    //добавила для пробы
+   // this.getProfile();
+  
+  }
+  
+  //добавила для пробы
+ 
+  getProfile(): void {
+    const usernamepublic = String(this.route.snapshot.paramMap.get('usernamepublic'));
+    this.ProfileService.findByUsername(usernamepublic)
+      .subscribe(profile => this.profile = profile);
+  };
+
+  
+
+
   updateProfile(): void {
-    this.ProfileService.update(this.currentProfile.id, this.currentProfile)
-      .subscribe(
+    this.ProfileService.update(this.currentUser.username, this.data = {
+      email: this.currentUser.email, 
+      emailpublic: this.currentUser.emailpublic,
+   gender: this.currentUser.gender,
+     usernamepublic: this.currentUser.usernamepublic
+      }
+    ).subscribe(
         response => {
           console.log(response);
           this.message = 'The tutorial was updated successfully!';
@@ -52,15 +73,17 @@ export class MeComponent implements OnInit {
   }
 
   deleteProfile(): void {
-    this.ProfileService.delete(this.currentProfile.id)
+    this.ProfileService.delete(this.currentUser.id)
       .subscribe(
         response => {
           console.log(response);
-        //  this.router.navigate(['/user']);
+          this.router.navigate(['/home']);
         },
         error => {
           console.log(error);
         });
   }
 }
+
+
 

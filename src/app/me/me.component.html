@@ -1,9 +1,78 @@
-<div class="container" *ngIf="currentUser; else loggedOut">
+<div style="width: 400px; margin: auto;">
+  <div *ngIf="currentUser" class="edit-form">
+    <h4>Profile</h4>
+    <form>
+      <div class="form-group">
+        <label for="usernamepublic">usernamepublic</label>
+        <input
+          type="text"
+          class="form-control"
+          id="usernamepublic"
+          [(ngModel)]="currentUser.usernamepublic"
+          name="usernamepublic"
+        />title
+      </div>
+      <div class="form-group">
+        <label for="emailpublic">emailpublic</label>
+        <input
+          type="text"
+          class="form-control"
+          id="emailpublic"
+          [(ngModel)]="currentUser.emailpublic"
+          name="emailpublic"
+        />
+      </div>
+
+    </form>
+
+   
+    
+
+    <button class="badge badge-danger mr-2" (click)="deleteProfile()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success"
+      (click)="updateProfile()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="container" *ngIf="currentUser; else loggedOut">
   <header class="jumbotron">
     <h3>
       <strong>{{ currentUser.username }}</strong> Profile
     </h3>
   </header>
+  <form>
+    
   <p>
     <strong>Username:</strong>
     {{ currentUser.username }}
@@ -12,17 +81,39 @@
    <strong>Token:</strong>
     {{ currentUser.accessToken.substring(0, 20) }} ...
     {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
-  </p>-->
-  <p>
-    <strong>Email:</strong>
-    {{ currentUser.email }}
-  </p>
+ <!-- </p><div class="form-group">
+  <label for ="email">Email </label>
+  <input
+  type="text"
+          class="form-control"
+          id="email"
+          [(ngModel)]="currentUser.email"
+          name="email"/>
+   </div>
+   <div class="form-group">
+    <label for="emailpublic">Emailpublic</label>
+    <input
+      type="text"
+      class="form-control"
+      id="emailpublic"
+      [(ngModel)]="currentUser.emailpublic"
+      name="emailpublic"
+    />
+  </div>
   <h2>Profiles details</h2>
   <ul>
-  <li>Username: {{currentUser.usernamepublic}} </li>
-  <li>Email: {{currentProfile.emailpublic}} </li>
-  <li>Gender: {{currentProfile.gender}} </li>
-</ul>
+  <li>Usernamepublic: {{currentUser.usernamepublic}} </li>
+
+  <li>Emailpublic: {{currentUser.emailpublic}} </li>
+
+
+  <li>
+    <label>Gender:
+      <input [(ngModel)]="currentUser.gender" name = "gender" placeholder="gender"/>
+    </label>
+   
+</li>
+</ul>-->
   <!--<strong>Roles:</strong>
   <ul>
     <li *ngFor="let role of currentUser.roles">
@@ -30,9 +121,19 @@
     </li>
   </ul>-->
   <!--сюда самостоятельно пишу данные, которые заполняет пользователь
-  tutorial 4-->
+  tutorial 4
+
+  </form>
+  <button
+  type="submit"
+  class="badge badge-success"
+  (click)="updateProfile()"
+>
+  Update
+</button>
+<p>{{ message }}</p>
 </div>
- <p> *********************************************** </p>
+ <p> *********************************************** </p>-->
 
 
 <!--

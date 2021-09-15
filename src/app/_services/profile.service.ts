@@ -14,6 +14,7 @@ import { MessageService } from './message.service';
 
 export class ProfileService {
   private UsersUrl = 'http://localhost:8080/api/auth/user';
+  private UsersnameUrl = 'http://localhost:8080/api/auth/user/username';
   private profilesUrl = 'http://localhost:8080/api/profiles';// apin osoite
 private profilesnameUrl = 'http://localhost:8080/api/profiles/username';
 //private apiUrl = 'https://warm-lowlands-87442.herokuapp.com/students'; адрес серверной части указать свой, когда привязали ее к heruku
@@ -41,7 +42,7 @@ getAll(): Observable<Profile[]> {
     catchError(this.handleError<Profile[]>('getAll', []))
   );
 }
-
+/*
 create(data: any): Observable<any> {
   //попробовать потом указать второй адрес this.meUrl
   return this.http.post(this.profilesUrl, data, this.httpOptions);
@@ -52,23 +53,23 @@ create(data: any): Observable<any> {
 //tutorial 4
 get(id: any): Observable<any> {
   return this.http.get(`${this.profilesUrl}/${id}`);
-}
+}*/
 // было так ?usernamepublic=${usernamepublic} вместо /${usernamepublic}
-findByUsername(usernamepublic: string): Observable<any> {
-  return this.http.get(`${this.UsersUrl}/${usernamepublic}`).pipe(
+findByUsername(usernamepublic: any): Observable<any> {
+  return this.http.get(`${this.UsersnameUrl}/${usernamepublic}`).pipe(
     tap(_ => this.log(`fetched hero id=${usernamepublic}`)),
   catchError(this.handleError<Profile>(`findByUsername usernamepublic=${usernamepublic}`))
   );};
 //пока изменение делаем как в туториале
-update(id:any, data: any): Observable<any> {
-  return this.http.put(`${this.profilesUrl}/${id}`, data);
+update(username:any, data: any): Observable<any> {
+  return this.http.put(`${this.UsersnameUrl}/${username}`, data);
 }
 //пока удаление делаем как в туториале
 delete(id: any): Observable<any> {
-  return this.http.delete(`${this.profilesUrl}/${id}`);
+  return this.http.delete(`${this.UsersUrl}/${id}`);
 }
 
-/* GET profile whose name contains search term */
+/* GET profile whose name contains search term 
 searchProfile(term: string): Observable<Profile[]> {
   if (!term.trim()) {
     // if not search term, return empty hero array.
@@ -81,7 +82,7 @@ searchProfile(term: string): Observable<Profile[]> {
     catchError(this.handleError<Profile[]>('searchProfiles', []))
   );
   
-};
+};*/
 /**
  * Handle Http operation that failed.
  * Let the app continue.

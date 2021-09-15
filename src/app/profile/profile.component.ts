@@ -28,49 +28,7 @@ export class ProfileComponent implements OnInit {
     this.ProfileService.findByUsername(usernamepublic)
       .subscribe(profile => this.profile = profile);
   }
-/*
-  updatePublished(status: any): void {
-    const data = {
-      usernamepublic: this.usernamepublic,
-      emailpublic: this.currentProfile.emailpublic,
-      gender: this.currentProfile.gender,
-      published: status
-    };
 
-    this.ProfileService.update(this.currentProfile.id, data)
-      .subscribe(
-        response => {
-          this.currentProfile.published = status;
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
-  updateProfile(): void {
-    this.ProfileService.update(this.currentProfile.id, this.currentProfile)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.message = 'The profile was updated successfully!';
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
-  deleteProfile(): void {
-    this.ProfileService.delete(this.currentProfile.id)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.router.navigate(['/profiles']);
-        },
-        error => {
-          console.log(error);
-        });
-  }*/
   //методика, с помощью которой идем на шаг назад
  //метод взят из библиотеки ангулар import { Location } from '@angular/common'
   goBack(): void {
