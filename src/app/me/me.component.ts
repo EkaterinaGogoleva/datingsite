@@ -15,13 +15,12 @@ import { AuthService } from '../_services/auth.service';
 })
 export class MeComponent implements OnInit {
   profile!: Profile;
-  //currentUser from tutorial 1
+
   currentUser: any;
   //tutorial 4 Поменяла null на any
   message='';
   data!: {};
-  //пробую делать чтобы сюда шли данные из формы
-  // currentProfile:any;
+ 
 
 
   constructor(private token: TokenStorageService,
@@ -32,28 +31,13 @@ export class MeComponent implements OnInit {
 
  
   ngOnInit(): void {
-    //this.currentUser = this.token.getUser();
+  
     this.currentUser = this.token.getUser();
     this.message = '';
-    //пробую сама, чтобы данные из форы шли в "me"
-   // this.currentProfile = this.token.getUser();
-   //сама написала data, что обновлялись только конкрены поля
-  
-    //добавила для пробы
-   // this.getProfile();
-  
+    
   }
   
-  //добавила для пробы
- 
-  getProfile(): void {
-    const usernamepublic = String(this.route.snapshot.paramMap.get('usernamepublic'));
-    this.ProfileService.findByUsername(usernamepublic)
-      .subscribe(profile => this.profile = profile);
-  };
-
   
-
 
   updateProfile(): void {
     this.ProfileService.update(this.currentUser.username, this.data = {
@@ -77,7 +61,9 @@ export class MeComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-          this.router.navigate(['/home']);
+          //signOut ei toimi
+          this.token.signOut();
+          this.router.navigate(['/#']);
         },
         error => {
           console.log(error);

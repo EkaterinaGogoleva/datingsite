@@ -33,21 +33,5 @@ export class ProfilesComponent implements OnInit {
         .subscribe(profiles => this.profiles = profiles);
   }
 
- /*
- searchByUsername(): void {
-  this.ProfileService.findByUsername(this.usernamepublic)
-    .subscribe(
-      data => {
-        this.profiles = data;
-        console.log(data);
-      },
-      error => {
-        console.log(error);
-      });
-}*/
- //Tour of heroes
-
-
-
 
 }

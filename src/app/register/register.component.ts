@@ -20,7 +20,6 @@ export class RegisterComponent implements OnInit {
     usernamepublic: null,
     emailpublic: null,
     gender: null,
-    published: false
   };
   isSuccessful = false;
   isSignUpFailed = false;

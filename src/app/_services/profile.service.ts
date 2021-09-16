@@ -3,7 +3,6 @@ import { Observable, of, throwError  } from 'rxjs'; //добавили библ�
 import { HttpClient, HttpRequest, HttpHeaders, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Profile } from '../profile';
-import { MessageService } from './message.service';
 import { delay, materialize, dematerialize } from 'rxjs/operators';
 
 
@@ -12,11 +11,11 @@ import { delay, materialize, dematerialize } from 'rxjs/operators';
 })
 
 
-export class ProfileService {
-  private UsersUrl = 'http://localhost:8080/api/auth/user';
-  private UsersnameUrl = 'http://localhost:8080/api/auth/user/username';
-  private profilesUrl = 'http://localhost:8080/api/profiles';// apin osoite
+export class ProfileService {// apin osoite
+private UsersUrl = 'http://localhost:8080/api/auth/user';
+private ProfilesUrl = 'http://localhost:8080/api/profiles';
 private profilesnameUrl = 'http://localhost:8080/api/profiles/username';
+
 //private apiUrl = 'https://warm-lowlands-87442.herokuapp.com/students'; адрес серверной части указать свой, когда привязали ее к heruku
  
 //делает, чтобы данные возвращались в формате json
@@ -24,17 +23,9 @@ httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-constructor(private messageService: MessageService,
-  //c помощью объекта HTTP делаем запрос в сервис
+constructor(
    private http: HttpClient) { }
-  // Virheenkäsittelymetodi joka palauttaa observablen
-  /*private handleError(error: any): Observable<any> {
-    console.error('An error occurred', error);
-    return (error.message || error);
-  }*/
-  private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
-  };
+  
 
 getAll(): Observable<Profile[]> {
   return this.http.get<Profile[]>(this.UsersUrl)
@@ -42,33 +33,25 @@ getAll(): Observable<Profile[]> {
     catchError(this.handleError<Profile[]>('getAll', []))
   );
 }
-/*
-create(data: any): Observable<any> {
-  //попробовать потом указать второй адрес this.meUrl
-  return this.http.post(this.profilesUrl, data, this.httpOptions);
-}
-
 
 
 //tutorial 4
-get(id: any): Observable<any> {
+/*get(id: any): Observable<any> {
   return this.http.get(`${this.profilesUrl}/${id}`);
 }*/
-// было так ?usernamepublic=${usernamepublic} вместо /${usernamepublic}
+
 findByUsername(usernamepublic: any): Observable<any> {
   return this.http.get(`${this.profilesnameUrl}/${usernamepublic}`).pipe(
-    tap(_ => this.log(`fetched hero id=${usernamepublic}`)),
   catchError(this.handleError<Profile>(`findByUsername usernamepublic=${usernamepublic}`))
   );};
 
-
-//пока изменение делаем как в туториале
+//pitää update Profile ja Me, mutta nyt update vain Profile
 update(username:any, data: any): Observable<any> {
   return this.http.put(`${this.profilesnameUrl}/${username}`, data);
 }
-//пока удаление делаем как в туториале
+//toimi väärin
 delete(id: any): Observable<any> {
-  return this.http.delete(`${this.UsersUrl}/${id}`);
+  return this.http.delete(`${this.ProfilesUrl}/${id}`);
 }
 
 /* GET profile whose name contains search term 
@@ -83,7 +66,6 @@ searchProfile(term: string): Observable<Profile[]> {
        this.log(`no heroes matching "${term}"`)),
     catchError(this.handleError<Profile[]>('searchProfiles', []))
   );
-  
 };*/
 /**
  * Handle Http operation that failed.
@@ -96,9 +78,6 @@ searchProfile(term: string): Observable<Profile[]> {
 
     // TODO: send the error to remote logging infrastructure
     console.error(error); // log to console instead
-
-    // TODO: better job of transforming error for user consumption
-    this.log(`${operation} failed: ${error.message}`);
 
     // Let the app keep running by returning an empty result.
     return of(result as T);
