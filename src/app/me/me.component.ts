@@ -61,7 +61,7 @@ export class MeComponent implements OnInit {
       emailpublic: this.currentUser.emailpublic,
    gender: this.currentUser.gender,
      usernamepublic: this.currentUser.usernamepublic
-      }
+      },
     ).subscribe(
         response => {
           console.log(response);

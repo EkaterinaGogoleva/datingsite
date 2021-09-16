@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs'; //добавили библиотеку асинхронного метода observable
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of, throwError  } from 'rxjs'; //добавили библиотеку асинхронного метода observable
+import { HttpClient, HttpRequest, HttpHeaders, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Profile } from '../profile';
 import { MessageService } from './message.service';
-
+import { delay, materialize, dematerialize } from 'rxjs/operators';
 
 
 @Injectable({
@@ -56,13 +56,15 @@ get(id: any): Observable<any> {
 }*/
 // было так ?usernamepublic=${usernamepublic} вместо /${usernamepublic}
 findByUsername(usernamepublic: any): Observable<any> {
-  return this.http.get(`${this.UsersnameUrl}/${usernamepublic}`).pipe(
+  return this.http.get(`${this.profilesnameUrl}/${usernamepublic}`).pipe(
     tap(_ => this.log(`fetched hero id=${usernamepublic}`)),
   catchError(this.handleError<Profile>(`findByUsername usernamepublic=${usernamepublic}`))
   );};
+
+
 //пока изменение делаем как в туториале
 update(username:any, data: any): Observable<any> {
-  return this.http.put(`${this.UsersnameUrl}/${username}`, data);
+  return this.http.put(`${this.profilesnameUrl}/${username}`, data);
 }
 //пока удаление делаем как в туториале
 delete(id: any): Observable<any> {
