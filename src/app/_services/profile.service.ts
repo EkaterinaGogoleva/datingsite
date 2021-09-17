@@ -45,10 +45,21 @@ findByUsername(usernamepublic: any): Observable<any> {
   catchError(this.handleError<Profile>(`findByUsername usernamepublic=${usernamepublic}`))
   );};
 
+  findByUsname(username: any): Observable<any> {
+    return this.http.get(`${this.ProfilesUrl}/usname/${username}`).pipe(
+    catchError(this.handleError<Profile>(`findByUsname username=${username}`))
+    );};
+
 //pitää update Profile ja Me, mutta nyt update vain Profile
 update(username:any, data: any): Observable<any> {
   return this.http.put(`${this.profilesnameUrl}/${username}`, data);
 }
+
+
+  
+
+
+
 //toimi väärin
 delete(id: any): Observable<any> {
   return this.http.delete(`${this.ProfilesUrl}/${id}`);
