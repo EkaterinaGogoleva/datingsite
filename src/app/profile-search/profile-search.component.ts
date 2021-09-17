@@ -1,4 +1,4 @@
-/*import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import {
   debounceTime, distinctUntilChanged, switchMap
@@ -22,8 +22,9 @@ private searchTerms = new Subject<string>();
   constructor(
     private ProfileService: ProfileService) { }
 
-    searchByUsername(term: string): void {
-      this.searchTerms.next(term);
+      // Push a search term into the observable stream.
+    searchByUsername(usernamepublic: string): void {
+      this.searchTerms.next(usernamepublic);
     }
     
 
@@ -40,8 +41,8 @@ private searchTerms = new Subject<string>();
       distinctUntilChanged(),
 
       // switch to new search observable each time the term changes
-      switchMap((term: string) => this.ProfileService.searchProfile(term)),
+      switchMap((usernamepublic: string) => this.ProfileService.searchProfile(usernamepublic)),
     );
   }
 
-}*/
+}

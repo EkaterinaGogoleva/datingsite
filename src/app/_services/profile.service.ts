@@ -54,19 +54,20 @@ delete(id: any): Observable<any> {
   return this.http.delete(`${this.ProfilesUrl}/${id}`);
 }
 
-/* GET profile whose name contains search term 
-searchProfile(term: string): Observable<Profile[]> {
-  if (!term.trim()) {
+/*Tour of Heroes 
+GET profile whose name contains search term */
+searchProfile(usernamepublic: string): Observable<Profile[]> {
+  if (!usernamepublic.trim()) {
     // if not search term, return empty hero array.
     return of([]);
   }
-  return this.http.get<Profile[]>(`${this.profilesUrl}/?usernamepublic=${term}`).pipe(
-    tap(x => x.length ?
-       this.log(`found heroes matching "${term}"`) :
-       this.log(`no heroes matching "${term}"`)),
+  //возможно стоит здесь изменить ?usernamepublic=${term} на ${usernamepublic}
+  return this.http.get<Profile[]>(`${this.ProfilesUrl}/search/${usernamepublic}`).pipe(
     catchError(this.handleError<Profile[]>('searchProfiles', []))
   );
-};*/
+};
+
+
 /**
  * Handle Http operation that failed.
  * Let the app continue.

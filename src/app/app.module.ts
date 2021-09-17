@@ -12,7 +12,7 @@ import { MeComponent } from './me/me.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ProfileComponent } from './profile/profile.component';
-//import { ProfileSearchComponent } from './profile-search/profile-search.component';
+import { ProfileSearchComponent } from './profile-search/profile-search.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { ProfileComponent } from './profile/profile.component';
     ProfilesComponent,
     LoginComponent,
     ProfileComponent,
-   // ProfileSearchComponent,
+   ProfileSearchComponent,
   ],
   imports: [
     BrowserModule, 
