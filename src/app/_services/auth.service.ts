@@ -33,7 +33,7 @@ export class AuthService {
       password,
       usernamepublic,
       emailpublic,
-      gender
+      gender,
     }, httpOptions);
   };
 

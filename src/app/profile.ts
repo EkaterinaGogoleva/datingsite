@@ -6,6 +6,7 @@ export class Profile {
    public usernamepublic: String,
    public emailpublic: String,
     public gender: String,
+    public foto: []
     //public date_of_birth: Date,
     //public children: string,
     //public marital_status: string,

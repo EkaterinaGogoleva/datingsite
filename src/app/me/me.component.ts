@@ -25,6 +25,7 @@ export class MeComponent implements OnInit {
   email!: string;
   emailpublic!: string;
   gender!: string;
+  foto!:[];
   
   /*navigateToList() {
       this.router.navigate(['profiles']);
@@ -62,6 +63,7 @@ export class MeComponent implements OnInit {
         email: this.currentUser.email,
         emailpublic: this.currentUser.emailpublic,
         gender: this.currentUser.gender,
+        foto:this.currentUser.foto,
         usernamepublic: this.currentUser.usernamepublic,
       })
     ).subscribe(

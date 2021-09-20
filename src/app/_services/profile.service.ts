@@ -15,7 +15,7 @@ export class ProfileService {// apin osoite
 private UsersUrl = 'http://localhost:8080/api/auth/user';
 private ProfilesUrl = 'http://localhost:8080/api/profiles';
 private profilesnameUrl = 'http://localhost:8080/api/profiles/username';
-
+private fotoUrl = 'http://localhost:8080/api/foto';
 //private apiUrl = 'https://warm-lowlands-87442.herokuapp.com/students'; адрес серверной части указать свой, когда привязали ее к heruku
  
 //делает, чтобы данные возвращались в формате json
@@ -97,6 +97,32 @@ searchProfile(usernamepublic: string): Observable<Profile[]> {
     return of(result as T);
   };
 }
+//***********upload images */
+//Tutorial 7
+/*– FormData is a data structure that can be used to store key-value pairs. We use it to build an object which corresponds to an HTML form with append() method.
+
+– We set reportProgress: true to exposes progress events. Notice that this progress event are expensive (change detection for each event), so you should only use when you want to monitor it.
+
+– We call the request(PostRequest) & get() method of HttpClient to send an HTTP POST & Get request to the Multiple Files Upload Rest server. */
+upload(file: File): Observable<HttpEvent<any>> {
+  const formData: FormData = new FormData();
+
+  formData.append('file', file);
+
+  const req = new HttpRequest('POST', `${this.fotoUrl}/upload`, formData, {
+    reportProgress: true,
+    responseType: 'json'
+  });
+
+  return this.http.request(req);
+}
+getFiles(): Observable<any> {
+  return this.http.get(`${this.fotoUrl}/file`);
+}
+
+
+
+
 
 
 } 

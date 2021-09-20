@@ -13,6 +13,7 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileSearchComponent } from './profile-search/profile-search.component';
+import { UploadImagesComponent } from './upload-images/upload-images.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ProfileSearchComponent } from './profile-search/profile-search.componen
     LoginComponent,
     ProfileComponent,
    ProfileSearchComponent,
+   UploadImagesComponent,
   ],
   imports: [
     BrowserModule, 
