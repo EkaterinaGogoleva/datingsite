@@ -25,6 +25,10 @@ export class MeComponent implements OnInit {
   email!: string;
   emailpublic!: string;
   gender!: string;
+  
+  /*navigateToList() {
+      this.router.navigate(['profiles']);
+    };*/
 
   constructor(
     private token: TokenStorageService,
@@ -34,7 +38,9 @@ export class MeComponent implements OnInit {
     private location: Location
   ) {
     this.currentUser = this.token.getUser();
+    
   }
+
 
   getProfile(): void {
     const username = this.currentUser.username;
@@ -69,17 +75,9 @@ export class MeComponent implements OnInit {
     );
   }
 
-  deleteProfile(): void {
-    this.ProfileService.delete(this.currentUser.id).subscribe(
-      (response) => {
-        console.log(response);
-        //signOut ei toimi
-        this.token.signOut();
-        this.router.navigate(['/#']);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+  deleteProfile(): void {  
+    this.ProfileService.delete(this.currentUser.username)
+     .subscribe(() => this.getProfile())
+    .add(()=>this.router.navigate(['profiles']))
+    }
   }
-}

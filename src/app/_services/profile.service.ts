@@ -61,8 +61,10 @@ update(username:any, data: any): Observable<any> {
 
 
 //toimi väärin
-delete(id: any): Observable<any> {
-  return this.http.delete(`${this.ProfilesUrl}/${id}`);
+delete(username: any): Observable<Profile> {
+  return this.http.delete<Profile>(`${this.ProfilesUrl}/${username}`).pipe(
+    catchError(this.handleError<Profile>('deleteProfiles'))
+  );
 }
 
 /*Tour of Heroes 
