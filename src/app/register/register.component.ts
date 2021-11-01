@@ -19,7 +19,14 @@ export class RegisterComponent implements OnInit {
     password: null,
     nickname: null,
     gender: null,
-    foto: null
+    foto: null,
+    date_of_birth: null,
+    children: null,
+    marital_status: null,
+    education: null,
+    profession: null,
+    about_myself: null,
+
   };
   isSuccessful = false;
   isSignUpFailed = false;
@@ -34,9 +41,13 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { username, email, password, nickname, gender, foto} = this.form;
+    const { username, email, password, nickname, gender, foto, date_of_birth, children, marital_status, education, profession,
+      about_myself
+      } = this.form;
 
-    this.authService.register(username, email, password, nickname, gender)
+    this.authService.register(username, email, password, nickname, gender, date_of_birth, children, marital_status, education, profession,
+      about_myself
+      )
     .subscribe(data => {
         console.log(data);
         this.isSuccessful = true;

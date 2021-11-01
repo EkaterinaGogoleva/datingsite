@@ -5,17 +5,13 @@ export class Profile {
    public email: String,
    public nickname: String,
     public gender:String,
-    public foto: []
-    //public date_of_birth: Date,
-    //public children: string,
-    //public marital_status: string,
-    //public height: string,
-    //public country: string,
-    //public education: string,
-   // public profession: string,
-    //public smoker: string,
-    //public email: string,
-    //public about_myself: string,
+    public foto: [],
+    public date_of_birth: Date,
+    public children: String,
+    public marital_status: String,
+    public education: String,
+    public profession: String,
+    public about_myself: String,
     //public wanted: Array<{}>
   ) {}
 }

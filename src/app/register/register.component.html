@@ -67,9 +67,20 @@
           name="nickname"
           [(ngModel)]="form.nickname"
           required
+          minlength="3"
+          maxlength="20"
           nickname
           #nickname="ngModel"
         />
+        <div class="alert-danger" *ngIf="nickname.errors && f.submitted">
+          <div *ngIf="nickname.errors.required">Username is required</div>
+          <div *ngIf="nickname.errors.minlength">
+            Nickname must be at least 3 characters
+          </div>
+          <div *ngIf="nickname.errors.maxlength">
+            Nickname must be at most 20 characters
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
@@ -89,16 +100,6 @@
           <option>Female</option>
           <option>Male</option>
         </select>
-        <!--
-        <input
-          type="gender"
-          class="form-control"
-          name="gender"
-          [(ngModel)]="form.gender"
-          required
-          gender
-          #gender="ngModel"
-        />-->
       </div>
 
       <div class="form-group">
@@ -119,6 +120,118 @@
           </div>
         </div>
       </div>
+
+      <div class="form-group">
+        <label for="date_of_birth">Date of birth</label>
+        <input
+          type="date_of_birth"
+          class="form-control"
+          name="date_of_birth"
+          [(ngModel)]="form.date_of_birth"
+          date_of_birth
+          #date_of_birth="ngModel"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="children" id="children">Сhildren</label>
+
+        <select
+          type="children"
+          class="form-control"
+          [(ngModel)]="form.children"
+          required
+          children
+          #children="ngModel"
+          name="children"
+          for="children"
+          ngModel
+        >
+          <option>I prefer not to say</option>
+          <option>I do not have children</option>
+          <option>1 child</option>
+          <option>2 children</option>
+          <option>3 children</option>
+          <option>more than 3 children</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="marital_status" id="marital_status">Marital status</label>
+
+        <select
+          type="marital_status"
+          class="form-control"
+          [(ngModel)]="form.marital_status"
+          required
+          marital_status
+          #marital_status="ngModel"
+          name="marital_status"
+          for="marital_status"
+          ngModel
+        >
+          <option>I prefer not to say</option>
+          <option>Single</option>
+          <option>Married</option>
+          <option>Divorsed</option>
+          <option>Widow</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="education" id="education">Education</label>
+
+        <select
+          type="education"
+          class="form-control"
+          [(ngModel)]="form.education"
+          required
+          education
+          #education="ngModel"
+          name="education"
+          for="education"
+          ngModel
+        >
+          <option>I prefer not to say</option>
+          <option>High school graduate</option>
+          <option>Higher Education</option>
+          <option>Student</option>
+          <option>General secondary education</option>
+          <option>Pupil</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="profession">Profession</label>
+        <input
+          type="profession"
+          class="form-control"
+          name="profession"
+          [(ngModel)]="form.profession"
+          profession
+          #profession="ngModel"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="about_myself">About myself</label>
+        <input
+          type="about_myself"
+          class="form-control"
+          name="about_myself"
+          [(ngModel)]="form.about_myself"
+          maxlength="500"
+          about_myself
+          #about_myself="ngModel"
+        />
+        <div class="alert-danger" *ngIf="about_myself.errors && f.submitted">
+          <div *ngIf="about_myself.errors.maxlength">
+            Text must be at most 500 characters
+          </div>
+        </div>
+      </div>
+
       <div class="form-group">
         <button class="btn btn-primary btn-block">Sign Up</button>
       </div>

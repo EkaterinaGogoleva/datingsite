@@ -17,7 +17,7 @@
         />
       </div>
       <div class="form-group">
-        <label for="email">email</label>
+        <label for="email">Email</label>
         <input
           type="text"
           class="form-control"
@@ -27,7 +27,7 @@
         />
       </div>
       <div class="form-group">
-        <label for="nickname">nickname</label>
+        <label for="nickname">Nickname</label>
         <input
           type="text"
           class="form-control"
@@ -38,13 +38,78 @@
       </div>
 
       <div class="form-group">
-        <label for="gender">gender</label>
+        <label for="gender">Gender</label>
         <input
           type="text"
           class="form-control"
           id="gender"
           [(ngModel)]="currentUser.gender"
           name="gender"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="date_of_birth">Date of birth</label>
+        <input
+          type="date"
+          class="form-control"
+          id="date_of_birth"
+          [(ngModel)]="currentUser.date_of_birth"
+          name="date_of_birth"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="children">Children</label>
+        <input
+          type="text"
+          class="form-control"
+          id="children"
+          [(ngModel)]="currentUser.children"
+          name="children"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="marital_status">Marital status</label>
+        <input
+          type="text"
+          class="form-control"
+          id="marital_status"
+          [(ngModel)]="currentUser.marital_status"
+          name="marital_status"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="education">Education</label>
+        <input
+          type="text"
+          class="form-control"
+          id="education"
+          [(ngModel)]="currentUser.education"
+          name="education"
+        />
+      </div>
+      <div class="form-group">
+        <label for="profession">Profession</label>
+        <input
+          type="text"
+          class="form-control"
+          id="profession"
+          [(ngModel)]="currentUser.profession"
+          name="profession"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="about_myself">About myself</label>
+        <input
+          type="text"
+          class="form-control"
+          id="about_myself"
+          [(ngModel)]="currentUser.about_myself"
+          name="about_myself"
         />
       </div>
     </form>

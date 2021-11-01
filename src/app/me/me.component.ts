@@ -23,9 +23,15 @@ export class MeComponent implements OnInit {
   formData: any;
   nickname!: string;
   email!: string;
- 
   gender!: string;
   foto!:[];
+  date_of_birth!: Date; 
+  children!: string;
+  marital_status!: string; 
+  education!: string; 
+  profession!: string;
+  about_myself!: string;
+
   
   /*navigateToList() {
       this.router.navigate(['profiles']);
@@ -64,6 +70,13 @@ export class MeComponent implements OnInit {
         gender: this.currentUser.gender,
         foto:this.currentUser.foto,
         nickname: this.currentUser.nickname,
+        date_of_birth: this.currentUser.date_of_birth,
+         children: this.currentUser.children, 
+         marital_status: this.currentUser.marital_status, 
+         education: this.currentUser.education, 
+         profession: this.currentUser.profession,
+        about_myself: this.currentUser.about_myself,
+
       })
     ).subscribe(
       (response) => {
