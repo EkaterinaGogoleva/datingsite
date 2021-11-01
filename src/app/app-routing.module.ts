@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'me/username/:username', component: MeComponent },
   //tutorial 3
-  { path: 'profiles/username/:usernamepublic', component: ProfileComponent },
+  { path: 'profiles/username/:nickname', component: ProfileComponent },
   { path: 'profiles', component: ProfilesComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

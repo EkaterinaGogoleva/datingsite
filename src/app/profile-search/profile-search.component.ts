@@ -23,8 +23,8 @@ private searchTerms = new Subject<string>();
     private ProfileService: ProfileService) { }
 
       // Push a search term into the observable stream.
-    searchByUsername(usernamepublic: string): void {
-      this.searchTerms.next(usernamepublic);
+    searchByUsername(nickname: string): void {
+      this.searchTerms.next(nickname);
     }
     
 
@@ -41,7 +41,7 @@ private searchTerms = new Subject<string>();
       distinctUntilChanged(),
 
       // switch to new search observable each time the term changes
-      switchMap((usernamepublic: string) => this.ProfileService.searchProfile(usernamepublic)),
+      switchMap((nickname: string) => this.ProfileService.searchProfile(nickname)),
     );
   }
 

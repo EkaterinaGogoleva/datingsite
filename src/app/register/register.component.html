@@ -60,33 +60,36 @@
       </div>
 
       <div class="form-group">
-        <label for="usernamepublic">Usernamepublic</label>
+        <label for="nickname">Nickname</label>
         <input
-          type="usernamepublic"
+          type="nickname"
           class="form-control"
-          name="usernamepublic"
-          [(ngModel)]="form.usernamepublic"
+          name="nickname"
+          [(ngModel)]="form.nickname"
           required
-          usernamepublic
-          #usernamepublic="ngModel"
+          nickname
+          #nickname="ngModel"
         />
       </div>
 
       <div class="form-group">
-        <label for="emailpublic">Emailpublic</label>
-        <input
-          type="emailpublic"
-          class="form-control"
-          name="emailpublic"
-          [(ngModel)]="form.emailpublic"
-          required
-          emailpublic
-          #emailpublic="ngModel"
-        />
-      </div>
+        <label for="gender" id="gender">Gender</label>
 
-      <div class="form-group">
-        <label for="gender">Gender</label>
+        <select
+          type="gender"
+          class="form-control"
+          [(ngModel)]="form.gender"
+          required
+          gender
+          #gender="ngModel"
+          name="gender"
+          for="gender"
+          ngModel
+        >
+          <option>Female</option>
+          <option>Male</option>
+        </select>
+        <!--
         <input
           type="gender"
           class="form-control"
@@ -95,9 +98,8 @@
           required
           gender
           #gender="ngModel"
-        />
+        />-->
       </div>
-
 
       <div class="form-group">
         <label for="password">Password</label>
@@ -128,9 +130,6 @@
 
     <div class="alert alert-success" *ngIf="isSuccessful">
       Your registration is successful!
-    
-      
     </div>
   </div>
 </div>
-

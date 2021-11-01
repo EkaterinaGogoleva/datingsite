@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError  } from 'rxjs'; //добавили библиотеку асинхронного метода observable
-import { HttpClient, HttpRequest, HttpHeaders, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpHeaders, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS, HttpParams } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Profile } from '../profile';
 import { delay, materialize, dematerialize } from 'rxjs/operators';
+import { Gallery } from '../gallery';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class ProfileService {// apin osoite
 private UsersUrl = 'http://localhost:8080/api/auth/user';
 private ProfilesUrl = 'http://localhost:8080/api/profiles';
 private profilesnameUrl = 'http://localhost:8080/api/profiles/username';
-private fotoUrl = 'http://localhost:8080/api/foto';
+private fotoUrl = 'http://localhost:8080/api/upload/images/';
 //private apiUrl = 'https://warm-lowlands-87442.herokuapp.com/students'; адрес серверной части указать свой, когда привязали ее к heruku
  
 //делает, чтобы данные возвращались в формате json
@@ -40,9 +41,9 @@ getAll(): Observable<Profile[]> {
   return this.http.get(`${this.profilesUrl}/${id}`);
 }*/
 
-findByUsername(usernamepublic: any): Observable<any> {
-  return this.http.get(`${this.profilesnameUrl}/${usernamepublic}`).pipe(
-  catchError(this.handleError<Profile>(`findByUsername usernamepublic=${usernamepublic}`))
+findByUsername(nickname: any): Observable<any> {
+  return this.http.get(`${this.profilesnameUrl}/${nickname}`).pipe(
+  catchError(this.handleError<Profile>(`findByUsername nickname=${nickname}`))
   );};
 
   findByUsname(username: any): Observable<any> {
@@ -69,13 +70,13 @@ delete(username: any): Observable<Profile> {
 
 /*Tour of Heroes 
 GET profile whose name contains search term */
-searchProfile(usernamepublic: string): Observable<Profile[]> {
-  if (!usernamepublic.trim()) {
+searchProfile(nickname: string): Observable<Profile[]> {
+  if (!nickname.trim()) {
     // if not search term, return empty hero array.
     return of([]);
   }
-  //возможно стоит здесь изменить ?usernamepublic=${term} на ${usernamepublic}
-  return this.http.get<Profile[]>(`${this.ProfilesUrl}/search/${usernamepublic}`).pipe(
+  //возможно стоит здесь изменить ?nickname=${term} на ${nickname}
+  return this.http.get<Profile[]>(`${this.ProfilesUrl}/search/${nickname}`).pipe(
     catchError(this.handleError<Profile[]>('searchProfiles', []))
   );
 };
@@ -97,29 +98,30 @@ searchProfile(usernamepublic: string): Observable<Profile[]> {
     return of(result as T);
   };
 }
-//***********upload images */
-//Tutorial 7
-/*– FormData is a data structure that can be used to store key-value pairs. We use it to build an object which corresponds to an HTML form with append() method.
+/**************************************upload image */
+getGalleryById(id: string): Observable<any> {
+  const url = `${this.fotoUrl}/${id}`;
+  return this.http.get<Gallery>(url).pipe(
+    catchError(this.handleError<Gallery[]>('getgalleryID', []))
+  );
+}
 
-– We set reportProgress: true to exposes progress events. Notice that this progress event are expensive (change detection for each event), so you should only use when you want to monitor it.
-
-– We call the request(PostRequest) & get() method of HttpClient to send an HTTP POST & Get request to the Multiple Files Upload Rest server. */
-upload(file: File): Observable<HttpEvent<any>> {
-  const formData: FormData = new FormData();
-
+addGallery(gallery: Gallery, file: File): Observable<any> {
+  const formData = new FormData();
   formData.append('file', file);
+  formData.append('imageTitle', gallery.imageTitle);
+  formData.append('imageDesc', gallery.imageDesc);
+  const header = new HttpHeaders();
+  const params = new HttpParams();
 
-  const req = new HttpRequest('POST', `${this.fotoUrl}/upload`, formData, {
+  const options = {
+    params,
     reportProgress: true,
-    responseType: 'json'
-  });
-
+    headers: header
+  };
+  const req = new HttpRequest('POST', this.fotoUrl, formData, options);
   return this.http.request(req);
 }
-getFiles(): Observable<any> {
-  return this.http.get(`${this.fotoUrl}/file`);
-}
-
 
 
 

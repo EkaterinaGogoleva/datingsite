@@ -13,7 +13,16 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileSearchComponent } from './profile-search/profile-search.component';
-import { UploadImagesComponent } from './upload-images/upload-images.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { GalleryDetailsComponent } from './gallery-details/gallery-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//tutorial 8
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -24,14 +33,17 @@ import { UploadImagesComponent } from './upload-images/upload-images.component';
     LoginComponent,
     ProfileComponent,
    ProfileSearchComponent,
-   UploadImagesComponent,
+   GalleryComponent,
+   GalleryDetailsComponent,
+   
   ],
   imports: [
     BrowserModule, 
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule],
+    ReactiveFormsModule,
+    BrowserAnimationsModule],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
 })

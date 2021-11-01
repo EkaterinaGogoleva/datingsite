@@ -3,9 +3,8 @@ export class Profile {
 
    public username: String,
    public email: String,
-   public usernamepublic: String,
-   public emailpublic: String,
-    public gender: String,
+   public nickname: String,
+    public gender:String,
     public foto: []
     //public date_of_birth: Date,
     //public children: string,

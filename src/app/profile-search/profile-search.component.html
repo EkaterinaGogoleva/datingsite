@@ -1,23 +1,22 @@
-
-  <!--Tour of Heroes
+<!--Tour of Heroes
   Поиск по имени-->
- <div id="search-component">
-    <h4><label for="search-box">Search by Username</label></h4>
+<div id="search-component">
+  <h4><label for="search-box">Search by Username</label></h4>
 
-    <input
-      #searchBox
-      id="search-box"
-      (input)="searchByUsername(searchBox.value)"
-    />
+  <input
+    #searchBox
+    id="search-box"
+    (input)="searchByUsername(searchBox.value)"
+  />
 
-    <ul class="search-result">
-      <!--знак $ означает, что это переменная из Observable
+  <ul class="search-result">
+    <!--знак $ означает, что это переменная из Observable
       async filter eli pipe tilaa observablen templaatissa jolloin sankarit 
     saadan ulos observablesta -->
-      <li *ngFor="let profile of profiles$ | async">
-        <a  routerLink="/profiles/username/{{ profile.usernamepublic }}">
-          {{ profile.usernamepublic }}
-        </a>
-      </li>
-    </ul>
-  </div>
+    <li *ngFor="let profile of profiles$ | async">
+      <a routerLink="/profiles/username/{{ profile.nickname }}">
+        {{ profile.nickname }}
+      </a>
+    </li>
+  </ul>
+</div>

@@ -21,9 +21,9 @@ export class MeComponent implements OnInit {
   message = '';
   data!: {};
   formData: any;
-  usernamepublic!: string;
+  nickname!: string;
   email!: string;
-  emailpublic!: string;
+ 
   gender!: string;
   foto!:[];
   
@@ -61,10 +61,9 @@ export class MeComponent implements OnInit {
       this.currentUser.username,
       (this.data = {
         email: this.currentUser.email,
-        emailpublic: this.currentUser.emailpublic,
         gender: this.currentUser.gender,
         foto:this.currentUser.foto,
-        usernamepublic: this.currentUser.usernamepublic,
+        nickname: this.currentUser.nickname,
       })
     ).subscribe(
       (response) => {

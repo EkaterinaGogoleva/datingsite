@@ -1,7 +1,8 @@
+<app-gallery></app-gallery>
+<p>******************</p>
+<app-gallery-details></app-gallery-details>
 
-  <app-upload-images></app-upload-images>
-
-<div style="width: 400px; margin: auto;">
+<div style="width: 400px; margin: auto">
   <div *ngIf="currentUser" class="edit-form">
     <h4>Profile</h4>
     <form>
@@ -21,63 +22,42 @@
           type="text"
           class="form-control"
           id="email"
-          [(ngModel)]="currentUser.email"  
+          [(ngModel)]="currentUser.email"
           name="email"
         />
       </div>
       <div class="form-group">
-        <label for="usernamepublic">usernamepublic</label>
+        <label for="nickname">nickname</label>
         <input
           type="text"
           class="form-control"
-          id="usernamepublic"
-          [(ngModel)]="currentUser.usernamepublic" 
-          name="usernamepublic"
+          id="nickname"
+          [(ngModel)]="currentUser.nickname"
+          name="nickname"
         />title
       </div>
-      <div class="form-group">
-        <label for="emailpublic">emailpublic</label>
-        <input
-          type="text"
-          class="form-control"
-          id="emailpublic"
-          [(ngModel)]="currentUser.emailpublic" 
-          name="emailpublic"
-        />
-      </div>
+
       <div class="form-group">
         <label for="gender">gender</label>
         <input
           type="text"
           class="form-control"
           id="gender"
-          [(ngModel)]="currentUser.gender" 
+          [(ngModel)]="currentUser.gender"
           name="gender"
         />
       </div>
-
     </form>
-
 
     <button class="badge badge-danger mr-2" (click)="deleteProfile()">
       Delete
     </button>
 
-    <button
-      type="submit"
-      class="badge badge-success"
-      (click)="updateProfile()"
-    >
+    <button type="submit" class="badge badge-success" (click)="updateProfile()">
       Update
     </button>
     <p>{{ message }}</p>
   </div>
-
 </div>
 
-
-
-<ng-template #loggedOut>
-  Please login.
-</ng-template>
-
+<ng-template #loggedOut> Please login. </ng-template>

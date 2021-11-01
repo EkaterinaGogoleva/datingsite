@@ -1,19 +1,18 @@
-
-   <!-- Поиск по имени из Туториала 4
+<!-- Поиск по имени из Туториала 4
 <div class="col-md-8">
      <div class="input-group mb-3">
       <input
         type="text"
         class="form-control"
         placeholder="Search by username"
-        [(ngModel)]="usernamepublic"
+        [(ngModel)]="nickname"
       />
       
       <div class="input-group-append">
         <button
           class="btn btn-outline-secondary"
           type="button"
-          (click)="searchByUsername(usernamepublic)"
+          (click)="searchByUsername(nickname)"
         >
           Search by username
         </button>
@@ -21,20 +20,17 @@
       </div>
       </div>
       -->
-      <app-profile-search></app-profile-search>
+<app-profile-search></app-profile-search>
 
-    <h4>Profiles List</h4>
+<h4>Profiles List</h4>
 <div class="grid grid-pad">
-      <a
-        *ngFor="let profile of profiles"
-        class="col-1-4"
-        routerLink="/profiles/username/{{ profile.usernamepublic }}"
-      >
-  <div class="module hero">
-        <h4>{{ profile.usernamepublic }}</h4>
+  <a
+    *ngFor="let profile of profiles"
+    class="col-1-4"
+    routerLink="/profiles/username/{{ profile.nickname }}"
+  >
+    <div class="module hero">
+      <h4>{{ profile.nickname }}</h4>
     </div>
-    </a>
-  </div>
-
-  
-
+  </a>
+</div>

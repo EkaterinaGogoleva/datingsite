@@ -24,8 +24,8 @@ export class ProfileComponent implements OnInit {
   }
 
   getProfile(): void {
-    const usernamepublic = String(this.route.snapshot.paramMap.get('usernamepublic'));
-    this.ProfileService.findByUsername(usernamepublic)
+    const nickname = String(this.route.snapshot.paramMap.get('nickname'));
+    this.ProfileService.findByUsername(nickname)
       .subscribe(profile => this.profile = profile);
   }
 
