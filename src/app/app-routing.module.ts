@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { MeComponent } from './me/me.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   
@@ -16,6 +17,7 @@ const routes: Routes = [
   //tutorial 3
   { path: 'profiles/username/:nickname', component: ProfileComponent },
   { path: 'profiles', component: ProfilesComponent },
+  { path: '', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

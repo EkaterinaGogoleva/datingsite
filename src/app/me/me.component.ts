@@ -25,7 +25,7 @@ export class MeComponent implements OnInit {
   email!: string;
   gender!: string;
   foto!:[];
-  date_of_birth!: Date; 
+  date_of_birth!: string; 
   children!: string;
   marital_status!: string; 
   education!: string; 

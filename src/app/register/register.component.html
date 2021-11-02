@@ -6,11 +6,7 @@
   In the code above, we use Template Driven Form-->
 <div class="col-md-12">
   <div class="card card-container">
-    <img
-      id="profile-img"
-      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-      class="profile-img-card"
-    />
+    <div class="badge bg-primary"><h1>Registration form</h1></div>
     <form
       *ngIf="!isSuccessful"
       name="form"
@@ -102,29 +98,12 @@
         </select>
       </div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          name="password"
-          [(ngModel)]="form.password"
-          required
-          minlength="6"
-          #password="ngModel"
-        />
-        <div class="alert-danger" *ngIf="password.errors && f.submitted">
-          <div *ngIf="password.errors.required">Password is required</div>
-          <div *ngIf="password.errors.minlength">
-            Password must be at least 6 characters
-          </div>
-        </div>
-      </div>
+     
 
       <div class="form-group">
         <label for="date_of_birth">Date of birth</label>
         <input
-          type="date_of_birth"
+          type="date"
           class="form-control"
           name="date_of_birth"
           [(ngModel)]="form.date_of_birth"
@@ -228,6 +207,25 @@
         <div class="alert-danger" *ngIf="about_myself.errors && f.submitted">
           <div *ngIf="about_myself.errors.maxlength">
             Text must be at most 500 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+        />
+        <div class="alert-danger" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 6 characters
           </div>
         </div>
       </div>

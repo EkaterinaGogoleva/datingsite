@@ -23,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
    ProfileSearchComponent,
    GalleryComponent,
    GalleryDetailsComponent,
+   HomeComponent,
    
   ],
   imports: [
