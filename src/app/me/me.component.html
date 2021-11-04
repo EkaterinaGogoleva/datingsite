@@ -105,13 +105,15 @@
 
       <div class="form-group">
         <label for="about_myself">About myself</label>
-        <input
-          type="text"
+     
+          <textarea name="comment" cols="46" rows="4"
           class="form-control"
           id="about_myself"
           [(ngModel)]="currentUser.about_myself"
-          name="about_myself"
-        />
+          name="about_myself">
+            {{currentUser.about_myself}}
+          </textarea>
+       
       </div>
     </form>
 

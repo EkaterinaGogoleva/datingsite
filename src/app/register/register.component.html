@@ -4,9 +4,11 @@
     email: required, email format
     password: required, minLength=6
   In the code above, we use Template Driven Form-->
-<div class="col-md-12">
-  <div class="card card-container">
+  
+  <div class="col-md-12">
+  <div class="card card-container" style="background-color: RGB(47, 187, 247, 0.1);">
     <div class="badge bg-primary"><h1>Registration form</h1></div>
+   
     <form
       *ngIf="!isSuccessful"
       name="form"
@@ -238,9 +240,9 @@
         Signup failed!<br />{{ errorMessage }}
       </div>
     </form>
-
+  </div>
     <div class="alert alert-success" *ngIf="isSuccessful">
       Your registration is successful!
     </div>
   </div>
-</div>
+

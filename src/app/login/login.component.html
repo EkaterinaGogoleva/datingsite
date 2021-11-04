@@ -2,15 +2,20 @@
     username: required
     password: required, minLength=6-->
     <div class="col-md-12">
-      <div class="card card-container">
+      <div class="card card-container"
+      style="background-color: RGB(47, 187, 247, 0.1);
+       background-image: url('https://images.pexels.com/photos/356319/pexels-photo-356319.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+       background-repeat: no-repeat;
+       background-size: cover;
+       height: 800px;"
       
-        <img
-          id="profile-img"
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          class="profile-img-card"
-        />
+      >
+      <div 
+      *ngIf="!isLoggedIn"
+      class="badge bg-primary"><h1>Please login</h1></div>
+       
       
-        <form
+        <form 
           *ngIf="!isLoggedIn"
           name="form"
           (ngSubmit)="f.form.valid && onSubmit()"
@@ -73,10 +78,19 @@
           </div>
         </form>
     
-        <div class="alert alert-success" *ngIf="isLoggedIn">
-          Logged in app.
+        <div class="alert alert-success" *ngIf="isLoggedIn"
+        style="color: black; text-align: center;  background-color: RGB(174, 219, 245, 0.1);
+        margin: 0; 
+        color: #d54d7b; font-family: «Great Vibes», cursive; font-size: 80px; line-height: 75px; font-weight: normal; text-shadow: 0 1px 1px #fff; 
+   border-bottom: #d54d7b solid 4px;
+   "
+        
+        >
+          Welcome, {{currentUser.username}}!
          
         </div>
       </div>
-    </div>
+      </div>
+    
+    
     

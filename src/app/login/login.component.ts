@@ -7,6 +7,8 @@
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import {Router} from '@angular/router';
+import { ProfileService } from '../_services/profile.service';
+import { Profile } from '../profile';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +16,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+ 
+
   form: any = {
     username: null,
     password: null
@@ -21,9 +25,16 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
+  currentUser: any;
 
 
-  constructor(private router: Router, private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor( private token: TokenStorageService,
+    private router: Router, 
+    private authService: AuthService, 
+    private tokenStorage: TokenStorageService,
+    private ProfileService: ProfileService) { 
+    this.currentUser = this.token.getUser();
+  }
  
   
   ngOnInit(): void {
@@ -56,5 +67,12 @@ export class LoginComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
+  }
+
+  getProfile(): void {
+    const username = this.currentUser.username;
+    this.ProfileService.findByUsname(username).subscribe(
+      (profile: Profile[]) => (this.currentUser = profile)
+    );
   }
 }
