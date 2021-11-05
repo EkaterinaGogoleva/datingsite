@@ -5,13 +5,11 @@ export class Profile {
    public email: String,
    public nickname: String,
     public gender:String,
-    public foto: [],
     public date_of_birth: Date,
     public children: String,
     public marital_status: String,
     public education: String,
     public profession: String,
     public about_myself: String,
-    //public wanted: Array<{}>
   ) {}
 }

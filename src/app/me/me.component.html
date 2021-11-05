@@ -1,31 +1,26 @@
-<app-gallery></app-gallery>
-<p>******************</p>
-<app-gallery-details></app-gallery-details>
 
-<div style="width: 400px; margin: auto">
-  <div *ngIf="currentUser" class="edit-form">
-    <h4>Profile</h4>
-    <form>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          id="username"
-          [(ngModel)]="currentUser.username"
-          name="username"
-        />
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="text"
-          class="form-control"
-          id="email"
-          [(ngModel)]="currentUser.email"
-          name="email"
-        />
-      </div>
+
+<div >
+  <div *ngIf="currentUser" 
+  style="background-color: rgb(149, 204, 235, 0.5);
+  width:98%; margin:0.05em auto 0" >
+    <div class="badge bg-primary"
+    style="width: 100%;"><h1>My profile</h1></div>
+    
+    
+    <table cellspacing="0">
+      <tr>
+       <td>Username:</td><td>{{currentUser.username}}</td>
+      </tr>
+      <tr>
+       <td>Email:</td><td>{{currentUser.email}}</td>
+      </tr>
+
+     </table>
+    
+    
+   
+      <form>
       <div class="form-group">
         <label for="nickname">Nickname</label>
         <input
@@ -34,7 +29,7 @@
           id="nickname"
           [(ngModel)]="currentUser.nickname"
           name="nickname"
-        />title
+        />
       </div>
 
       <div class="form-group">
@@ -117,15 +112,38 @@
       </div>
     </form>
 
-    <button class="badge badge-danger mr-2" (click)="deleteProfile()">
-      Delete
+   
+  <div class="buttons">
+    <button class="badge badge-danger mr-2" 
+    style="display: inline-block;
+    margin: auto; 
+    text-align: center;
+     width: 170px;
+     height: 30px;
+    font-size: 1.3em;
+    padding: 0 1em; "
+    (click)="deleteProfile()">
+      Delete profile
     </button>
 
-    <button type="submit" class="badge badge-success" (click)="updateProfile()">
+    <button type="submit" class="badge badge-success" (click)="updateProfile()"
+    style="display: inline-block;
+    
+     width: 170px;
+     height: 30px;
+     font-size: 1.3em;
+    padding: 0 1em;
+    text-align: center;"
+    >
       Update
     </button>
-    <p>{{ message }}</p>
   </div>
-</div>
+    <p>{{ message }}</p>
+ 
+ 
+
+  </div>
 
 <ng-template #loggedOut> Please login. </ng-template>
+
+

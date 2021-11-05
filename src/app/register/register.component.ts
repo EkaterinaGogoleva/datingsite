@@ -19,7 +19,6 @@ export class RegisterComponent implements OnInit {
     password: null,
     nickname: null,
     gender: null,
-    foto: null,
     date_of_birth: null,
     children: null,
     marital_status: null,
@@ -41,7 +40,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { username, email, password, nickname, gender, foto, date_of_birth, children, marital_status, education, profession,
+    const { username, email, password, nickname, gender, date_of_birth, children, marital_status, education, profession,
       about_myself
       } = this.form;
 

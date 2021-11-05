@@ -1,36 +1,27 @@
-<!-- Поиск по имени из Туториала 4
-<div class="col-md-8">
-     <div class="input-group mb-3">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search by username"
-        [(ngModel)]="nickname"
-      />
-      
-      <div class="input-group-append">
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          (click)="searchByUsername(nickname)"
-        >
-          Search by username
-        </button>
-      </div>
-      </div>
-      </div>
-      -->
-<app-profile-search></app-profile-search>
 
-<h4>Profiles List</h4>
-<div class="grid grid-pad">
+  
+    <div >
+      <div 
+      style="background-color: rgb(149, 204, 235, 0.5);
+      width:98%; margin:0.05em auto 0" >
+      
+    
+<app-profile-search></app-profile-search>
+<div class="badge bg-primary" style="width: 100%;">
+  <h1>Profiles list</h1></div>
+
+
+
+
+
+<div >
   <a
     *ngFor="let profile of profiles"
-    class="col-1-4"
+    class=" list-group-item-action col-1-4"
     routerLink="/profiles/username/{{ profile.nickname }}"
   >
-    <div class="module hero">
       <h4>{{ profile.nickname }}</h4>
-    </div>
   </a>
+</div>
+</div>
 </div>

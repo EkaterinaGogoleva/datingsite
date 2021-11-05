@@ -13,8 +13,6 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileSearchComponent } from './profile-search/profile-search.component';
-import { GalleryComponent } from './gallery/gallery.component';
-import { GalleryDetailsComponent } from './gallery-details/gallery-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //tutorial 8
 import { MatInputModule } from '@angular/material/input';
@@ -34,8 +32,6 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     ProfileComponent,
    ProfileSearchComponent,
-   GalleryComponent,
-   GalleryDetailsComponent,
    HomeComponent,
    
   ],

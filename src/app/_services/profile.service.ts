@@ -4,7 +4,7 @@ import { HttpClient, HttpRequest, HttpHeaders, HttpResponse, HttpHandler, HttpEv
 import { catchError, map, tap } from 'rxjs/operators';
 import { Profile } from '../profile';
 import { delay, materialize, dematerialize } from 'rxjs/operators';
-import { Gallery } from '../gallery';
+
 
 
 @Injectable({
@@ -16,7 +16,7 @@ export class ProfileService {// apin osoite
 private UsersUrl = 'http://localhost:8080/api/auth/user';
 private ProfilesUrl = 'http://localhost:8080/api/profiles';
 private profilesnameUrl = 'http://localhost:8080/api/profiles/username';
-private fotoUrl = 'http://localhost:8080/api/upload/images/';
+
 //private apiUrl = 'https://warm-lowlands-87442.herokuapp.com/students'; адрес серверной части указать свой, когда привязали ее к heruku
  
 //делает, чтобы данные возвращались в формате json
@@ -57,9 +57,6 @@ update(username:any, data: any): Observable<any> {
 }
 
 
-  
-
-
 
 //toimi väärin
 delete(username: any): Observable<Profile> {
@@ -98,34 +95,6 @@ searchProfile(nickname: string): Observable<Profile[]> {
     return of(result as T);
   };
 }
-/**************************************upload image */
-getGalleryById(id: string): Observable<any> {
-  const url = `${this.fotoUrl}/${id}`;
-  return this.http.get<Gallery>(url).pipe(
-    catchError(this.handleError<Gallery[]>('getgalleryID', []))
-  );
-}
-
-addGallery(gallery: Gallery, file: File): Observable<any> {
-  const formData = new FormData();
-  formData.append('file', file);
-  formData.append('imageTitle', gallery.imageTitle);
-  formData.append('imageDesc', gallery.imageDesc);
-  const header = new HttpHeaders();
-  const params = new HttpParams();
-
-  const options = {
-    params,
-    reportProgress: true,
-    headers: header
-  };
-  const req = new HttpRequest('POST', this.fotoUrl, formData, options);
-  return this.http.request(req);
-}
-
-
-
-
 
 } 
 

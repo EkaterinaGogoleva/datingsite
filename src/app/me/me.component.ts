@@ -24,7 +24,6 @@ export class MeComponent implements OnInit {
   nickname!: string;
   email!: string;
   gender!: string;
-  foto!:[];
   date_of_birth!: string; 
   children!: string;
   marital_status!: string; 
@@ -68,7 +67,6 @@ export class MeComponent implements OnInit {
       (this.data = {
         email: this.currentUser.email,
         gender: this.currentUser.gender,
-        foto:this.currentUser.foto,
         nickname: this.currentUser.nickname,
         date_of_birth: this.currentUser.date_of_birth,
          children: this.currentUser.children, 

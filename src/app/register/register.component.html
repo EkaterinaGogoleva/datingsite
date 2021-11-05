@@ -6,7 +6,7 @@
   In the code above, we use Template Driven Form-->
   
   <div class="col-md-12">
-  <div class="card card-container" style="background-color: RGB(47, 187, 247, 0.1);">
+  <div class="card card-container" style="background-color: rgb(149, 204, 235, 0.5);">
     <div class="badge bg-primary"><h1>Registration form</h1></div>
    
     <form
@@ -98,6 +98,9 @@
           <option>Female</option>
           <option>Male</option>
         </select>
+        <div class="alert-danger" *ngIf="gender.errors && f.submitted">
+          <div *ngIf="gender.errors.required">Gender is required</div>
+        </div>
       </div>
 
      
@@ -121,7 +124,7 @@
           type="children"
           class="form-control"
           [(ngModel)]="form.children"
-          required
+       
           children
           #children="ngModel"
           name="children"
@@ -144,7 +147,7 @@
           type="marital_status"
           class="form-control"
           [(ngModel)]="form.marital_status"
-          required
+          
           marital_status
           #marital_status="ngModel"
           name="marital_status"
@@ -166,7 +169,7 @@
           type="education"
           class="form-control"
           [(ngModel)]="form.education"
-          required
+       
           education
           #education="ngModel"
           name="education"
@@ -197,15 +200,20 @@
 
       <div class="form-group">
         <label for="about_myself">About myself</label>
-        <input
-          type="about_myself"
-          class="form-control"
-          name="about_myself"
-          [(ngModel)]="form.about_myself"
-          maxlength="500"
-          about_myself
-          #about_myself="ngModel"
-        />
+        <textarea name="comment" cols="46" rows="4"
+        class="form-control"
+        id="about_myself"
+        [(ngModel)]="form.about_myself"
+        name="about_myself"
+        type="about_myself"
+        maxlength="500"
+        about_myself
+        #about_myself="ngModel"
+        >
+          {{form.about_myself}}
+        </textarea>
+        
+  
         <div class="alert-danger" *ngIf="about_myself.errors && f.submitted">
           <div *ngIf="about_myself.errors.maxlength">
             Text must be at most 500 characters

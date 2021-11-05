@@ -1,8 +1,13 @@
 .container {
-  background-color: rgb(237, 140, 227, 0.5);
+  background-color: rgb(205, 158, 194);
 height: 750px;
 background-image: url("src/image/background3.jpg");
-background-size: cover;
+background-size: 100%;
+background-repeat: no-repeat;
+width: 100%
 }
 
-h1 { color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 150px; line-height: 150px; font-weight: normal; margin-bottom: 0px; margin-top: 0px; text-align: center; text-shadow: 0 2px 2px #fff; }
+h1 { color: #d54d7b ; font-family: "Great Vibes", 
+  cursive; font-size: 8em; line-height: normal; 
+  font-weight: normal; margin-bottom: 0px; margin-top: 0px; 
+  text-align: center; text-shadow: 0 2px 2px #fff; }
