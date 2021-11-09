@@ -1,0 +1,19 @@
+.container {  
+  margin: auto;
+  padding-bottom:200px;
+  width: 60%;}
+  .element {
+    background-color: white;
+    margin: 15px;
+    border: 1px solid rgb(219,215,210);
+    height: 35px;
+    border-radius: 5px;
+    padding: 3px 10px 3px 10px;
+  }
+  .search {
+    margin-left: 80px;
+  }
+  .element:hover {
+    background: rgb(13, 110,253); /* Цвет фона под ссылкой */ 
+    color: #ffe; /* Цвет ссылки */ 
+   } 

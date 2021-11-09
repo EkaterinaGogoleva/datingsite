@@ -1,7 +1,12 @@
 <div *ngIf="profile">
-  <h2>Profiles details</h2>
-  <ul>
-    <li>Nickname: {{ profile.nickname }}</li>
+  <div  
+  style="background-color: rgb(149, 204, 235, 0.5);
+  width:98%; margin:0.05em auto 0;" >
+<div class="badge bg-primary" style="width: 100%;">
+  <h1>Profiles details</h1></div>
+
+ <!-- <ul>
+    <div class="element"><li>Nickname: {{ profile.nickname }}</li></div>
     <li>Gender: {{ profile.gender }}</li>
     <li>Email: {{ profile.email }}</li>
     <li>Date of birth: {{ profile.date_of_birth }}</li>
@@ -12,4 +17,37 @@
     <li>About myself: {{ profile.about_myself }}</li>
 
   </ul>
+-->
+  <table>
+    <tr>
+     <td><div class= "element"><b>Nickname: </b>{{profile.nickname}}</div></td>
+    </tr>
+    <tr>
+     <td><div class= "element"><b>Gender: </b>{{profile.gender}}</div></td>
+    </tr>
+    <tr>
+      <td><div class= "element"><b>Email: </b>{{profile.email}}</div></td>
+     </tr>
+     <tr>
+      <td><div class= "element"><b>Date of birth: </b>{{profile.date_of_birth}}</div></td>
+     </tr>
+     <tr>
+      <td><div class= "element"><b>Children: </b>{{profile.children}}</div></td>
+     </tr>
+     <tr>
+      <td><div class= "element"><b>Marital status: </b>{{profile.marital_status}}</div></td>
+     </tr>
+     <tr>
+      <td><div class= "element"><b>Education: </b>{{profile.education}}</div></td>
+     </tr>
+     <tr>
+      <td><div class= "element"><b>Profession: </b>{{profile.profession}}</div></td>
+     </tr>
+     <tr>
+      <td><div class= "element"><b>About myself: </b>{{profile.about_myself}}</div></td>
+     </tr>
+    
+
+   </table>
+  </div>
 </div>

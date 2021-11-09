@@ -15,6 +15,7 @@
       <tr>
        <td>Email:</td><td>{{currentUser.email}}</td>
       </tr>
+      
 
      </table>
     
@@ -112,7 +113,8 @@
       </div>
     </form>
 
-   
+   <p class="mess">{{ message }}</p>
+
   <div class="buttons">
     <button class="badge badge-danger mr-2" 
     style="display: inline-block;
@@ -138,12 +140,17 @@
       Update
     </button>
   </div>
-    <p>{{ message }}</p>
+    
  
  
 
   </div>
-
-<ng-template #loggedOut> Please login. </ng-template>
+ 
+  <div *ngIf="!currentUser"
+  style="background-color: rgb(149, 204, 235, 0.5);
+  width:98%; margin:0.05em auto 0" >
+    <div class="badge bg-primary"
+    style="width: 100%;"><h1>Please, login</h1>
+   </div> 
 
 

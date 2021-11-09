@@ -1,12 +1,12 @@
 
   
     <div >
-      <div 
+      <div  
       style="background-color: rgb(149, 204, 235, 0.5);
-      width:98%; margin:0.05em auto 0" >
+      width:98%; margin:0.05em auto 0;" >
       
-    
-<app-profile-search></app-profile-search>
+    <div class="search">
+<app-profile-search></app-profile-search></div>
 <div class="badge bg-primary" style="width: 100%;">
   <h1>Profiles list</h1></div>
 
@@ -14,13 +14,15 @@
 
 
 
-<div >
-  <a
+<div class="container" >
+<a
     *ngFor="let profile of profiles"
     class=" list-group-item-action col-1-4"
     routerLink="/profiles/username/{{ profile.nickname }}"
+    
   >
-      <h4>{{ profile.nickname }}</h4>
+  <div class="element"
+  > <h4>{{ profile.nickname }}</h4></div> 
   </a>
 </div>
 </div>

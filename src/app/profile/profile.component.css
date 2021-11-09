@@ -1,0 +1,28 @@
+
+  
+table{ 
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 1em;
+  
+  table-layout: fixed;
+ 
+}
+
+  td {
+  
+  width: 100%;
+ 
+  }
+  .element {
+    white-space: normal;
+    word-wrap: break-word;
+    min-width: 150px;
+    background-color: white;
+   margin: 15px 0;
+    border: 1px solid rgb(219,215,210);
+    border-radius: 5px;
+  text-align: center;
+  
+    padding: 7px 3px}

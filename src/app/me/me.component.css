@@ -14,10 +14,20 @@ TABLE {
  TD {
   padding-left: 1em; 
   padding-top: 0.8em;
-  font-weight: 500
+  font-weight: 500;
+ 
  }
  td:first-child {text-align: right;}
  
  .buttons {width: 350px;
-  margin:auto;}
- 
+  margin:auto;
+  padding-bottom: 40px;}
+ .mess {
+  background-color: rgb(149, 204, 235, 0);
+   color:green;
+  
+   font-size: 2em;
+   text-align: center;
+
+
+ }

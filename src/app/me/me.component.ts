@@ -79,7 +79,7 @@ export class MeComponent implements OnInit {
     ).subscribe(
       (response) => {
         console.log(response);
-        this.message = 'The tutorial was updated successfully!';
+        this.message = 'Profile was updated successfully!';
       },
       (error) => {
         console.log(error);
@@ -90,6 +90,19 @@ export class MeComponent implements OnInit {
   deleteProfile(): void {  
     this.ProfileService.delete(this.currentUser.username)
      .subscribe(() => this.getProfile())
-    .add(()=>this.router.navigate(['profiles']))
+    .add(
+      ()=>this.router.navigate(['profiles'])); 
+    this.message = 'Profile was deleted successfully!';
     }
+
+    /*deleteProfile(): void {  
+      this.ProfileService.delete(this.currentUser.username)
+       .subscribe(() => this.getProfile());
+      this.message = 'Profile was deleted successfully!';
+    setTimeout(()=>this.router.navigate(['profiles']), 30000)
+      };*/
+
+  
+
   }
+  
