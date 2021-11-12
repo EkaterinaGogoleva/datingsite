@@ -18,7 +18,9 @@ const routes: Routes = [
   { path: 'profiles/username/:nickname', component: ProfileComponent },
   { path: 'profiles', component: ProfilesComponent },
   { path: '', component: HomeComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+ //заменяем нижнюю запись на верхнюю
+ // { path: '', redirectTo: 'home', pathMatch: 'full' }
+
 ];
 
 @NgModule({
