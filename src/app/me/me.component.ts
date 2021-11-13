@@ -1,12 +1,12 @@
 /*This Component gets current User from Storage using TokenStorageService 
-and show information (username, token, email, roles).*/
+and show information (username, email...).*/
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { ProfileService } from '../_services/profile.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Profile } from '../profile';
 import { Location } from '@angular/common'; //нужно чтобы перемещаться на один шаг назад в приложении
-import { AuthService } from '../_services/auth.service';
+
 
 @Component({
   selector: 'app-me',
@@ -17,7 +17,7 @@ export class MeComponent implements OnInit {
   profile!: Profile[];
 
   currentUser: any;
-  //tutorial 4 Поменяла null на any
+  //Tutorial 4 Поменяла null на any
   message = '';
   data!: {};
   formData: any;
@@ -31,10 +31,6 @@ export class MeComponent implements OnInit {
   profession!: string;
   about_myself!: string;
 
-  
-  /*navigateToList() {
-      this.router.navigate(['profiles']);
-    };*/
 
   constructor(
     private token: TokenStorageService,
@@ -56,7 +52,6 @@ export class MeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.currentUser = this.token.getUser();
     this.getProfile();
     this.message = '';
   }
@@ -94,15 +89,5 @@ export class MeComponent implements OnInit {
       ()=>this.router.navigate(['profiles'])); 
     this.message = 'Profile was deleted successfully!';
     }
-
-    /*deleteProfile(): void {  
-      this.ProfileService.delete(this.currentUser.username)
-       .subscribe(() => this.getProfile());
-      this.message = 'Profile was deleted successfully!';
-    setTimeout(()=>this.router.navigate(['profiles']), 30000)
-      };*/
-
-  
-
   }
   

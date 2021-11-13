@@ -1,6 +1,4 @@
-<!--Here are what we validate in the form:
-    username: required
-    password: required, minLength=6-->
+
     <div class="col-md-12">
       <div class="card card-container"
       style="background-color: RGB(149, 204, 235, 0.5);
@@ -14,7 +12,7 @@
       *ngIf="!isLoggedIn"
       class="badge bg-primary"><h1>Please login</h1></div>
        
-      
+  
         <form 
           *ngIf="!isLoggedIn"
           name="form"
@@ -83,11 +81,8 @@
         margin: 0; 
         color: #d54d7b; font-family: «Great Vibes», cursive; font-size: 80px; line-height: 75px; font-weight: normal; text-shadow: 0 1px 1px #fff; 
    border-bottom: #d54d7b solid 4px;
-   "
-        
-        >
+   ">
           Welcome, {{currentUser.username}}!
-         
         </div>
       </div>
       </div>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 import { ProfileService } from '../_services/profile.service';
 import { Profile } from '../profile';
 
@@ -10,18 +9,10 @@ import { Profile } from '../profile';
 })
 export class ProfilesComponent implements OnInit {
 
-
- 
- 
  profiles: Profile[] = [];
   
-  
+  constructor(private ProfileService: ProfileService) { }
 
-  constructor(//private userService: UserService,
-    private ProfileService: ProfileService) { }
-
-    
-    
 
   ngOnInit(): void {
  
@@ -33,8 +24,4 @@ export class ProfilesComponent implements OnInit {
         .subscribe(profiles => this.profiles = profiles);
   }
 
-
-
-
-  
 }

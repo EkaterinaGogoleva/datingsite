@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Profile } from '../profile';
 
-//путь к серверной части аутентификации
+//authentication takes place here
 const AUTH_API = 'http://localhost:8080/api/auth/';
 
 const httpOptions = {

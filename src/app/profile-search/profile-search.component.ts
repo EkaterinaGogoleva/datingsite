@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import {
-  debounceTime, distinctUntilChanged, switchMap
-} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
 import { ProfileService } from '../_services/profile.service';
 import { Profile } from '../profile';
@@ -14,8 +12,7 @@ import { Profile } from '../profile';
 })
 export class ProfileSearchComponent implements OnInit {
 
- 
-  //Tour of heroes
+  //Tutorial 7
   profiles$!: Observable<Profile[]>;
 private searchTerms = new Subject<string>();
  
@@ -30,7 +27,7 @@ private searchTerms = new Subject<string>();
 
   ngOnInit(): void {
  
- //Tour of heroes
+ //Tutorial 7
     this.profiles$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
       //это промежуток времени нужен, чтобы понять какой именно запрос мы вводим "a" или "ab"

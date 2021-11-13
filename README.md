@@ -39,3 +39,30 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   
   ## PWA
  This WebApp is a progressive Web App 
+
+ ## Tutorials
+ The following tutorials were used when creating the site:
+ - Tutorial 1 Frontend-sovelluskehitys
+ https://optima.jamk.fi/learning/id2/bin/user?rand=5008
+ - Tutorial 2 Mobiilikehitys web-tekniikoilla
+ https://optima.jamk.fi/learning/id2/bin/user?rand=5008
+- Tutorial 3 form angular, node, mongodb
+https://www.bezkoder.com/angular-10-mongodb-node-express/
+ - Tutorial 4 form angular
+https://www.bezkoder.com/angular-10-mongodb-node-express/
+ - Tutorial 5 Angular crud
+https://www.bezkoder.com/angular-10-crud-app/
+ - Tutorial 6 Sign up sign in angular
+ https://www.bezkoder.com/angular-11-jwt-auth/ 
+- Tutorial 7 Tour of heroes
+ https://angular.io/tutorial
+- Tutorial 8 PWA for Angular
+https://www.positronx.io/build-progressive-web-app-pwa-with-angular/
+
+ 
+
+
+
+
+
+

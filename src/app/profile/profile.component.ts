@@ -14,12 +14,10 @@ export class ProfileComponent implements OnInit {
   constructor(
     private ProfileService: ProfileService,
     private route: ActivatedRoute,
-    //private router: Router,
     ) { } 
    
 
   ngOnInit(): void {
-   // this.message = '';
     this.getProfile();
   }
 

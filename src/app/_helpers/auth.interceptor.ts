@@ -1,4 +1,4 @@
-//titorial 2
+//tutorial 6
 /*HttpInterceptor has intercept() method to inspect and transform HTTP 
 requests before they are sent to server.
 AuthInterceptor implements HttpInterceptor. We’re gonna add 

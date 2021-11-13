@@ -1,4 +1,4 @@
-/*Tutorial 2
+/*Tutorial 6
 First, we check isLoggedIn status using TokenStorageService, 
 if it is true, we get user’s roles and set value 
 for showAdminBoard & showModeratorBoard flag. They will 

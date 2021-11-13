@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-
 import { MeComponent } from './me/me.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -18,8 +16,7 @@ const routes: Routes = [
   { path: 'profiles/username/:nickname', component: ProfileComponent },
   { path: 'profiles', component: ProfilesComponent },
   { path: '', component: HomeComponent },
- //заменяем нижнюю запись на верхнюю
- // { path: '', redirectTo: 'home', pathMatch: 'full' }
+
 
 ];
 

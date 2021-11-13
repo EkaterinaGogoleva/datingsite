@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError  } from 'rxjs'; //добавили библиотеку асинхронного метода observable
+import { Observable, of, throwError  } from 'rxjs'; 
 import { HttpClient, HttpRequest, HttpHeaders, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS, HttpParams } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Profile } from '../profile';
@@ -13,11 +13,13 @@ import { delay, materialize, dematerialize } from 'rxjs/operators';
 
 
 export class ProfileService {// apin osoite
-private UsersUrl = 'http://localhost:8080/api/auth/user';
-private ProfilesUrl = 'http://localhost:8080/api/profiles';
-private profilesnameUrl = 'http://localhost:8080/api/profiles/username';
+//private UsersUrl = 'http://localhost:8080/api/auth/user';
+//private ProfilesUrl = 'http://localhost:8080/api/profiles';
+//private profilesnameUrl = 'http://localhost:8080/api/profiles/username';
+private UsersUrl = 'https://rocky-peak-05692.herokuapp.com/api/auth/user';
+private ProfilesUrl = 'https://rocky-peak-05692.herokuapp.com/api/profiles';
+private profilesnameUrl = 'https://rocky-peak-05692.herokuapp.com/api/profiles/username';
 
-//private apiUrl = 'https://warm-lowlands-87442.herokuapp.com/students'; адрес серверной части указать свой, когда привязали ее к heruku
  
 //делает, чтобы данные возвращались в формате json
 httpOptions = {
@@ -35,12 +37,6 @@ getAll(): Observable<Profile[]> {
   );
 }
 
-
-//tutorial 4
-/*get(id: any): Observable<any> {
-  return this.http.get(`${this.profilesUrl}/${id}`);
-}*/
-
 findByUsername(nickname: any): Observable<any> {
   return this.http.get(`${this.profilesnameUrl}/${nickname}`).pipe(
   catchError(this.handleError<Profile>(`findByUsername nickname=${nickname}`))
@@ -51,28 +47,23 @@ findByUsername(nickname: any): Observable<any> {
     catchError(this.handleError<Profile>(`findByUsname username=${username}`))
     );};
 
-//pitää update Profile ja Me, mutta nyt update vain Profile
 update(username:any, data: any): Observable<any> {
   return this.http.put(`${this.profilesnameUrl}/${username}`, data);
 }
 
-
-
-//toimi väärin
 delete(username: any): Observable<Profile> {
   return this.http.delete<Profile>(`${this.ProfilesUrl}/${username}`).pipe(
     catchError(this.handleError<Profile>('deleteProfiles'))
   );
 }
 
-/*Tour of Heroes 
+/*Tutorial 7
 GET profile whose name contains search term */
 searchProfile(nickname: string): Observable<Profile[]> {
   if (!nickname.trim()) {
     // if not search term, return empty hero array.
     return of([]);
   }
-  //возможно стоит здесь изменить ?nickname=${term} на ${nickname}
   return this.http.get<Profile[]>(`${this.ProfilesUrl}/search/${nickname}`).pipe(
     catchError(this.handleError<Profile[]>('searchProfiles', []))
   );
