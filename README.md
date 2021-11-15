@@ -1,6 +1,6 @@
 # Datingsite
 
-## About App
+## About this project
 
 This project is a simple dating app.
 It allows the user to register by clicking on the "Sign Up" button. To register, you need to fill in the form.
@@ -43,6 +43,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   ## PWA
  This WebApp is a progressive Web App 
 
+ ## Github
+
+ git clone https://github.com/EkaterinaGogoleva/datingsite.git
+
+ project is private
+
  ## Tutorials
  The following tutorials were used when creating the site:
  - Tutorial 1 Frontend-sovelluskehitys
@@ -63,7 +69,13 @@ https://www.bezkoder.com/angular-10-crud-app/
 https://www.positronx.io/build-progressive-web-app-pwa-with-angular/
 
  
-
+## Reflection and use of time
+- work lasted about 100 hours 
+- difficulties arose at every stage:
+it was tricky to get the Crude function to work correctly (get, change, delete). Reactive search also caused problems.
+Failed to implement the idea of uploading photos by users 
+- When working with css, bootstrap allowed you to add your own styles only to the template file, which is not very convenient.
+- Failed to create a multi-page registration form, requires knowledge of reactive forms  
 
 
 
