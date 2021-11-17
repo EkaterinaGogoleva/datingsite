@@ -6,9 +6,10 @@ import { Observable } from 'rxjs';
 import { Profile } from '../profile';
 
 //authentication takes place here
-//const AUTH_API = 'http://localhost:8080/api/auth/';
+const AUTH_API = 'https://datingsitenode1.herokuapp.com/api/auth/';
 //muutoin kun laitoin backed herokuun
-const AUTH_API = 'https://rocky-peak-05692.herokuapp.com/api/auth';
+
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
