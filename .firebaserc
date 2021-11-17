@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "datingsiteang": {
+      "hosting": {
+        "datingsite": [
+          "datingsiteang"
+        ]
+      }
+    }
+  }
+}
