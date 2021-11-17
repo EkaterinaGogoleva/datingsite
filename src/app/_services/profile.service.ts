@@ -13,12 +13,10 @@ import { delay, materialize, dematerialize } from 'rxjs/operators';
 
 
 export class ProfileService {// apin osoite
-private UsersUrl = 'http://localhost:8080/api/auth/user';
-private ProfilesUrl = 'http://localhost:8080/api/profiles';
-private profilesnameUrl = 'http://localhost:8080/api/profiles/username';
-//private UsersUrl = 'https://rocky-peak-05692.herokuapp.com/api/auth/user';
-//private ProfilesUrl = 'https://rocky-peak-05692.herokuapp.com/api/profiles';
-//private profilesnameUrl = 'https://rocky-peak-05692.herokuapp.com/api/profiles/username';
+private UsersUrl = 'https://datingsitenode1.herokuapp.com/api/auth/user';
+private ProfilesUrl = 'https://datingsitenode1.herokuapp.com/api/profiles';
+private profilesnameUrl = 'https://datingsitenode1.herokuapp.com/api/profiles/username';
+
 
  
 //делает, чтобы данные возвращались в формате json
