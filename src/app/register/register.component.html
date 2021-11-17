@@ -8,11 +8,12 @@
   <div class="col-md-12">
   <div class="card card-container" style="background-color: rgb(149, 204, 235, 0.5);">
     <div class="badge bg-primary"><h1>Registration form</h1></div>
-   
+   <!-- заменила сточку, чтоб не было буков
+        (ngSubmit)="f.form.valid && onSubmit()"-->
     <form
       *ngIf="!isSuccessful"
       name="form"
-      (ngSubmit)="f.form.valid && onSubmit()"
+      (ngSubmit)="f.form.valid"
       #f="ngForm"
       novalidate
     >

@@ -12,11 +12,12 @@
       *ngIf="!isLoggedIn"
       class="badge bg-primary"><h1>Please login</h1></div>
        
-  
+  <!--заменила строчку, чтоб не было бугов
+   (ngSubmit)="f.form.valid && onSubmit()"-->
         <form 
           *ngIf="!isLoggedIn"
           name="form"
-          (ngSubmit)="f.form.valid && onSubmit()"
+          (ngSubmit)="f.form.valid"
           #f="ngForm"
           novalidate
         >
