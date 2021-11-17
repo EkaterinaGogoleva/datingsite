@@ -110,10 +110,6 @@
           "options": {
             "browserTarget": "datingsite:build"
           }
-        },
-        "deploy": {
-          "builder": "@angular/fire:deploy",
-          "options": {}
         }
       }
     }
