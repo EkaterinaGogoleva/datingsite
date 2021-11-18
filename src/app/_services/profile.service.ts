@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError  } from 'rxjs'; 
-import { HttpClient, HttpRequest, HttpHeaders, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS, HttpParams } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable, of} from 'rxjs'; 
+import { HttpClient,  HttpHeaders } from '@angular/common/http';
+import { catchError} from 'rxjs/operators';
 import { Profile } from '../profile';
 
 

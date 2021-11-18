@@ -10,7 +10,7 @@ A registered user can log in to the app by clicking on the "LogIn" button. After
 
 The "Profiles" page contains a list of all registered users (their nicknames). By clicking on the desired nickname, the user receives all available information about the person (except for the name and password). On the "Profiles" page, you can reactively search for users by nickname, and it is enough to enter only a part of the nickname.
 
-registered user can loged out
+Registered user can loged out.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
 
@@ -18,7 +18,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-App is hosted at https://datingsiteekaterina.web.app/login
+App is hosted at https://datingsiteang.web.app/
 Used Firebase.
 
 ## Code scaffolding
@@ -70,12 +70,13 @@ https://www.positronx.io/build-progressive-web-app-pwa-with-angular/
 
  
 ## Reflection and use of time
-- work lasted about 100 hours 
+- work lasted about 150 hours 
 - difficulties arose at every stage:
 it was tricky to get the Crude function to work correctly (get, change, delete). Reactive search also caused problems.
 Failed to implement the idea of uploading photos by users 
 - When working with css, bootstrap allowed you to add your own styles only to the template file, which is not very convenient.
-- Failed to create a multi-page registration form, requires knowledge of reactive forms  
+- Failed to create a multi-page registration form, requires knowledge of reactive forms.
+-Шt took a lot of time to host the project on the firebase and establish proper work with the server.   
 
 
 

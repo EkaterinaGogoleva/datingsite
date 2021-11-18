@@ -3,7 +3,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Profile } from '../profile';
+
 
 //authentication takes place here
 const AUTH_API = 'https://datingsitenode1.herokuapp.com/api/auth/';
