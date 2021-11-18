@@ -1,10 +1,11 @@
 .container {
-  background-color: rgb(205, 158, 194);
+  background-color: rgb(218, 188, 214);
 height: 750px;
 background-image: url("src/image/background3.jpg");
 background-size: 100%;
 background-repeat: no-repeat;
-width: 100%
+width: 100%;
+background-position: 50% 60% ;
 }
 
 h1 { color: #d54d7b ; font-family: "Great Vibes", 
