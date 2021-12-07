@@ -30,6 +30,7 @@ export class MeComponent implements OnInit {
   education!: string; 
   profession!: string;
   about_myself!: string;
+  foto!: string;
 
 
   constructor(
@@ -69,6 +70,7 @@ export class MeComponent implements OnInit {
          education: this.currentUser.education, 
          profession: this.currentUser.profession,
         about_myself: this.currentUser.about_myself,
+        foto:  this.currentUser.foto,
 
       })
     ).subscribe(

@@ -6,6 +6,7 @@ import { MeComponent } from './me/me.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
+//import { GalleryComponent } from './gallery/gallery.component';
 
 const routes: Routes = [
   
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'profiles/username/:nickname', component: ProfileComponent },
   { path: 'profiles', component: ProfilesComponent },
   { path: '', component: HomeComponent },
-
+//Для загрузки фоток
+ // {path: 'gallery', component: GalleryComponent},
 
 ];
 

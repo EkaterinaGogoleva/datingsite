@@ -13,6 +13,11 @@ import { Profile } from '../profile';
 
 
 export class ProfileService {// apin osoite
+ // private UsersUrl = 'http://localost:8080/api/auth/user';
+ // private ProfilesUrl = 'http://localost:8080/api/profiles';
+ // private profilesnameUrl = 'http://localost:8080/api/profiles/username';
+
+
 private UsersUrl = 'https://datingsitenode1.herokuapp.com/api/auth/user';
 private ProfilesUrl = 'https://datingsitenode1.herokuapp.com/api/profiles';
 private profilesnameUrl = 'https://datingsitenode1.herokuapp.com/api/profiles/username';

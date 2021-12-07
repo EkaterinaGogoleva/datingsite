@@ -1,6 +1,6 @@
 export class Profile {
   constructor(
-
+public foto: String,
    public username: String,
    public email: String,
    public nickname: String,

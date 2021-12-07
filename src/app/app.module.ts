@@ -13,10 +13,20 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileSearchComponent } from './profile-search/profile-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
+//import { GalleryComponent } from './gallery/gallery.component';
+
 //Tutorial 8
 import { MaterialModule } from './material.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+//import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 @NgModule({
   declarations: [
@@ -28,7 +38,9 @@ import { environment } from '../environments/environment';
     ProfileComponent,
    ProfileSearchComponent,
    HomeComponent,
+   //GalleryComponent,
    
+ 
   ],
   imports: [
     BrowserModule, 
@@ -43,7 +55,14 @@ import { environment } from '../environments/environment';
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    //MaterialFileInputModule
     ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
