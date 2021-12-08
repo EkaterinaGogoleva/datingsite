@@ -4,8 +4,11 @@ to AuthService.register() method that returns an Observable object.
 */
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
+import { GalleryService } from '../_services/gallery.service';
 import {Router} from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEventType } from '@angular/common/http';
+import { Subscription } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +17,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterComponent implements OnInit {
  
- // foto=null;
 
   form: any = {
     username: null,
@@ -42,9 +44,16 @@ onFileSelected(event: any){
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  // Variable to store shortLink from api response
+  shortLink: string = "";
+  loading: boolean = false; // Flag variable
+  file!: File; // Variable to store file
+ // Variable to store file
+  
 
   constructor(private router: Router, 
     private authService: AuthService,
+    private galleryService: GalleryService,
     private http: HttpClient) { }
     
     
@@ -73,4 +82,27 @@ onFileSelected(event: any){
       }
     );
   }
+//uploading
+ // On file Select
+ onChange(event:any) {
+  this.file = event.target.files[0];
 }
+
+// OnClick of button Upload
+onUpload() {
+  this.loading = !this.loading;
+  console.log(this.file);
+  this.galleryService.upload(this.file).subscribe(
+      (event: any) => {
+          if (typeof (event) === 'object') {
+
+              // Short link via api response
+              this.shortLink = event.link;
+
+              this.loading = false; // Flag variable 
+          }
+      }
+  );
+}
+}
+

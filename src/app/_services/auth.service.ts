@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 
 
 //authentication takes place here
-//const AUTH_API = 'http//localhost:8080/api/auth/';
-const AUTH_API = 'https://datingsitenode1.herokuapp.com/api/auth/';
+const AUTH_API = 'http://localhost:8080/api/auth/';
+//const AUTH_API = 'https://datingsitenode1.herokuapp.com/api/auth/';
 //muutoin kun laitoin backed herokuun
 
 

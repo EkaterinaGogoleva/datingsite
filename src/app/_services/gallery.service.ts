@@ -1,38 +1,27 @@
-import { Observable, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams, HttpRequest, HttpEvent } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-
-
-
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-
 export class GalleryService {
-
-  private uploadUrl = 'http//localhost:8080/gallery';
-  //private uploadUrl = 'https://datingsitenode1.herokuapp.com/gallery';
-  constructor(
-    private http: HttpClient) { }
-
-
-    upload(file: File): Observable<HttpEvent<any>> {
-      const formData: FormData = new FormData();
+    
+  // API url
+  baseApiUrl = 'http://localhost:8080/singleFile';
+    
+  constructor(private http:HttpClient) { }
   
-      formData.append('file', file);
-  //'https://datingsitenode1.herokuapp.com/gallery/upload'
-      const req = new HttpRequest('POST', `${this.uploadUrl}/upload`, formData, {
-        reportProgress: true,
-        responseType: 'json'
-      });
+  // Returns an observable
+  upload(file: any):Observable<any> {
   
-      return this.http.request(req);
-    }
-  //'https://datingsitenode1.herokuapp.com/gallery/files'
-    getFiles(): Observable<any> {
-      return this.http.get(`${this.uploadUrl}/files`);
-    }
-
-    }
-
+      // Create form data
+      const formData = new FormData(); 
+        
+      // Store form name as "file" with file data
+      formData.append("file", file, file.name);
+        
+      // Make http post request over api
+      // with formData as req
+      return this.http.post(this.baseApiUrl, formData)
+  }
+}

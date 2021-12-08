@@ -8,6 +8,29 @@
   <div class="col-md-12">
   <div class="card card-container" style="background-color: rgb(149, 204, 235, 0.5);">
     <div class="badge bg-primary"><h1>Registration form</h1></div>
+<!--uploading без формы-->
+<div class="text-center">
+    <input class="form-control" type="file" 
+            (change)="onChange($event)">
+  
+    <button (click)="onUpload()" 
+        class="btn btn-success">
+        Upload
+    </button>
+</div>
+  
+<!-- Shareable short link of  uoloaded file -->
+<div class="container text-center jumbotron"
+    *ngIf="shortLink">
+    <h2> Visit Here</h2>
+    <a href="{{shortLink}}">{{shortLink}}</a>
+</div>
+  
+<!--Flag variable is used here-->
+<div class="container" *ngIf="loading">
+    <h3>Loading ...</h3>
+</div>
+    <!--*************************************************-->
     <form
       *ngIf="!isSuccessful"
       name="form"
@@ -16,7 +39,7 @@
       novalidate
     >
 <!--upload file
- (change)="onFileSelected($event)"-->
+ (change)="onFileSelected($event)"
 <div class="form-group">
   <label for="foto">Foto</label>
     
@@ -29,7 +52,7 @@
     accept="image/*"
     >
   
-</div>
+</div>-->
 
       <div class="form-group">
         <label for="username">Username</label>
