@@ -89,7 +89,7 @@ onFileSelected(event: any){
 }
 
 // OnClick of button Upload
-onUpload() {
+/*onUpload() {
   this.loading = !this.loading;
   console.log(this.file);
   this.galleryService.upload(this.file).subscribe(
@@ -103,6 +103,6 @@ onUpload() {
           }
       }
   );
-}
+}*/
 }
 

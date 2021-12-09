@@ -8,7 +8,7 @@
   <div class="col-md-12">
   <div class="card card-container" style="background-color: rgb(149, 204, 235, 0.5);">
     <div class="badge bg-primary"><h1>Registration form</h1></div>
-<!--uploading без формы-->
+<!--uploading без формы
 <div class="text-center">
     <input class="form-control" type="file" 
             (change)="onChange($event)">
@@ -19,17 +19,17 @@
     </button>
 </div>
   
-<!-- Shareable short link of  uoloaded file -->
+<!--Shareable short link of  uoloaded file 
 <div class="container text-center jumbotron"
     *ngIf="shortLink">
     <h2> Visit Here</h2>
     <a href="{{shortLink}}">{{shortLink}}</a>
 </div>
   
-<!--Flag variable is used here-->
+Flag variable is used here
 <div class="container" *ngIf="loading">
     <h3>Loading ...</h3>
-</div>
+</div>-->
     <!--*************************************************-->
     <form
       *ngIf="!isSuccessful"
@@ -38,21 +38,21 @@
       #f="ngForm"
       novalidate
     >
-<!--upload file
- (change)="onFileSelected($event)"
-<div class="form-group">
-  <label for="foto">Foto</label>
-    
-    <input 
-    type="file"
-    name="foto"
-    class="form-control"
-    [(ngModel)]="form.foto"
+<!--upload file-->
+<div class = "form-group">
+   <label for="foto">Foto</label> 
+   <input class="form-control" 
+   type="file" 
+  (change)="onChange($event)"
+  name="foto"
+  class="form-control"
+  [(ngModel)]="form.foto"
     #foto="ngModel"
-    accept="image/*"
-    >
-  
-</div>-->
+    ngModel>
+</div>
+
+ <!-- ---------------------------------- -->
+
 
       <div class="form-group">
         <label for="username">Username</label>
@@ -279,7 +279,8 @@
       </div>
 
       <div class="form-group">
-        <button class="btn btn-primary btn-block">Sign Up</button>
+        <button class="btn btn-primary btn-block"
+        >Sign Up</button>
       </div>
 
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">

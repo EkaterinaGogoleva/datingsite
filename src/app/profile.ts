@@ -1,6 +1,5 @@
 export class Profile {
   constructor(
-public foto: String,
    public username: String,
    public email: String,
    public nickname: String,
@@ -11,5 +10,6 @@ public foto: String,
     public education: String,
     public profession: String,
     public about_myself: String,
+    public foto: String,
   ) {}
 }
