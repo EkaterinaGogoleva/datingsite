@@ -3,6 +3,7 @@
 ## About this project
 
 This project is a simple dating app.
+That it works you should use server part https://github.com/EkaterinaGogoleva/dsnodenew.git
 It allows the user to register by clicking on the "Sign Up" button. To register, you need to fill in the form.
 The form has a validator that allows you to use a password of at least 6 characters, the nickname must be from 3 to 20 characters, the email must be written in a specific form. If the validation requirements are not met, the user is notified of this, and registration is performed only after the correct filling of the form.
 
@@ -20,6 +21,8 @@ Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app 
 
 App is hosted at https://datingsiteang.web.app/
 Used Firebase.
+Now app is locked at http:// localhost:4200
+To run the application use the command: "npm start" 
 
 ## Code scaffolding
 
